@@ -100,9 +100,9 @@ button {
 } 
 .cancelbtn { 
     padding: 14px 20px; 
-    background-color: black; 
 } 
 .cancelbtn,.signupbtn { 
+    background-color: black; 
     float: left; 
     width: 50%; 
 } 
@@ -111,7 +111,10 @@ button {
     padding: none; 
 } 
   
-  
+h5
+{
+	color:red;
+} 
 .clearfix::after { 
     content: ""; 
     clear: both; 
@@ -141,8 +144,10 @@ button {
                           <div class="modal-body">
                             <div class="limiter">
 		                          <div class="container-login100">
+		                          
 			                         <div class="wrap-login100">
-				                            <form class="login100-form validate-form" action="02.Student/index.html">
+				                            <form class="login100-form validate-form" action="login.jsp">
+				                            <h5>Invalid username or password</h5><br><br>
 					                           <span class="login100-form-title p-b-43">
 						                          Login to continue
 					                           </span>
