@@ -36,3 +36,13 @@ Teacher:
 -------------------------------------------------------------------------------------------------------------------------------
 NOTE: PLEASE ALTER THE FLOW IF NEEDED AND RAISE THE VERSION OF DOCUMENT AND SEND BACK.
 -------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+session on memberid
+css for subj list
+onigoing----->overdue/currently assigned/
+only one login modal
+don't accept role
+alert instead of errorIndex.html
