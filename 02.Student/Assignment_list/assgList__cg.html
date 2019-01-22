@@ -62,6 +62,18 @@
                 margin-top: 0 !important;
                 margin-bottom: 0 !important;
             }
+            
+            .assglist
+            {
+                text-align: center; 
+            }
+            
+            .viewAssg
+            {
+                width: 100px;                
+                border-radius: 12px;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+            }
         </style>
         
         <!--- basic page needs
@@ -111,7 +123,8 @@
                 <li class="current"><a href="../index.HTML" title="">Home</a></li>
                 <li class="has-children">
                     <a href="#0" title="">Menu</a>
-                    <ul class="sub-menu">                        
+                    <ul class="sub-menu">
+                        <li><a href="#">Profile</a></li>
                         <li><a href="../Forum/index.html">Forum</a></li>
                         <li><a href="../index.html">Logout</a></li>
                     </ul>
@@ -142,7 +155,7 @@
                     
                     <div class="vertical-menu">
                     <a href="#" class="active">Home</a>
-                    <a href="../images/sample_file.PDF">Open PDF</a>
+                    <a href="#">Topic 1</a>
                     <a href="#">Topic 2</a>
                     <a href="#">Topic 3</a>
                     <a href="#">Topic 5</a>
@@ -156,20 +169,44 @@
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-9">
-                    <h3>This is sample text</h3>
-                    <br><br>
-                    <table border="1">
-                        <tr>
-                            <th>Name</th>
-                            <th>Class</th>
+                    <table border="3">
+                        <tr class="assglist">
+                            <th>Sr No</th>
+                            <th>Assignment</th>
+                            <th>Assigned Date</th>
+                            <th>Submit Date</th>
+                            <th>View Assignment</th>
                         </tr>
-                        <tr>
-                            <td>Divya</td>
-                            <td>TY</td>
+                        <tr class="assglist">
+                            <td>1</td>
+                            <td>Write a program to print Hello world</td>
+                            <td>12/12/2018</td>
+                            <td>24/12/2018</td>
+                            <td><button class="viewAssg" name="view">View Assignment</button> </td>
                         </tr>
+                        
+                        <tr class="assglist">
+                            <td>2</td>
+                            <td>Write a program to print Hello world</td>
+                            <td>12/12/2018</td>
+                            <td>24/12/2018</td>
+                            <td><button class="viewAssg" name="view">View Assignment</button> </td>
+                        </tr>
+                        
+                        <tr class="assglist">
+                            <td>3</td>
+                            <td>Write a program to print Hello world</td>
+                            <td>12/12/2018</td>
+                            <td>24/12/2018</td>
+                            <td><button class="viewAssg" name="view">View Assignment</button> </td>
+                        </tr>
+                        
                         <tr>
-                            <td>Rutuja</td>
-                            <td>FY MSc</td>
+                            <td>4</td>
+                            <td>Write a program to print Hello world</td>
+                            <td>12/12/2018</td>
+                            <td>24/12/2018</td>
+                            <td><button class="viewAssg" name="view">View Assignment</button> </td>
                         </tr>
                     </table>
                 </div>
