@@ -23,7 +23,7 @@ Admin:
 	
 -------------------------------------------------------------------------------------------------------------------------------
 Teacher:
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 	Teaches can teach multiple subjects. Hence can be associated with multiple batches.
 	
 	1. See batch list.
@@ -33,16 +33,16 @@ Teacher:
 	5. Teacher can see list of topics associated with the batch. There will be a button 'View assignments' in front of every topic.
 	6. Clicking 'View assignments' will show list of assignments in that topic which are not yet assigned to the batch. There will be a button 'Assign' which will assign the assignment to the batch and make entry in AssignmentBatch table.
 	
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 NOTE: PLEASE ALTER THE FLOW IF NEEDED AND RAISE THE VERSION OF DOCUMENT AND SEND BACK.
--------------------------------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------------------------------
 
 
 
 
-session on memberid
+*	session on memberid
 css for subj list
-ongoing----->overdue/currently assigned/submitted
-only one login modal
-don't accept role
+*	ongoing----->overdue/currently assigned/submitted
+*	only one login modal
+*	don't accept role
 alert instead of errorIndex.html

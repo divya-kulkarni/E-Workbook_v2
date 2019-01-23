@@ -5,7 +5,7 @@
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Student's Dashboard</title>
+    <title>My Profile</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -27,10 +27,16 @@
     ================================================== -->
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    
+    <!-- Java Script
+    ================================================== -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
 
 </head>
 
-<body id="top">
+<body id="top" bgcolor="lightslategray">
 
     <!-- preloader
     ================================================== -->
@@ -81,76 +87,23 @@
 
     </header> <!-- s-header -->
     
-    <!-- featured 
-    ================================================== -->
-    <section class="s-featured">
-        <div class="row">
-            <div class="col-full">
-
-                <div class="featured-slider featured" data-aos="zoom-in">
-
-                    <div class="featured__slide">
-                        <div class="entry">
-
-                            <div class="entry__background" style="background-image:url('images/thumbs/featured/featured-watch.jpg');"></div>
-                            
-                            <div class="entry__content">
-                                <span class="entry__category"><a href="#overdue">Overdue</a></span><br>
-                                <span class="entry__category"><a href="#1">Subject1</a></span>
-
-                                <h1><a href="#0" title="">Topic1</a></h1>
-                            </div> <!-- end entry__content -->
-                            
-                        </div> <!-- end entry -->
-                    </div> <!-- end featured__slide -->
-
-                    <div class="featured__slide">
-
-                        <div class="entry">
-
-                            <div class="entry__background" style="background-image:url('images/thumbs/featured/tea.jpg');"></div>
-                            
-                            <div class="entry__content">
-                                <span class="entry__category"><a href="#ca">Currently Assigned</a></span><br>
-                                <span class="entry__category"><a href="#2">Subject2</a></span>
-
-                                <h1><a href="#0" title="">Topic2</a></h1>
-
-                            </div> <!-- end entry__content -->
-                            
-                        </div> <!-- end entry -->
-
-                    </div> <!-- end featured__slide -->
-
-                    <div class="featured__slide">
-
-                        <div class="entry">
-
-                            <div class="entry__background" style="background-image:url('images/thumbs/featured/glasses.jpg');"></div>
-
-                            <div class="entry__content">
-                                <span class="entry__category"><a href="submitted">Submitted</a></span><br>
-                                <span class="entry__category"><a href="#3">Subject3</a></span>
-
-                                <h1><a href="#0" title="">Topic3</a></h1>
-                            </div> <!-- end entry__content -->
-
-                        </div> <!-- end entry -->
-
-                    </div> <!-- end featured__slide -->
-                    
-                </div> <!-- end featured -->
-
-            </div> <!-- end col-full -->
-        </div>
-    </section> <!-- end s-featured -->
-
-    <!-- Java Script
-    ================================================== -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/main.js"></script>
-
-</body>
-
+    <br><br><br>
+    <h3 align="center">My profile details</h3>
+    <br>
+    <br>
+    
+    <%
+        Student s = new Student();
+       String fields[] = s.getFields();       <%-- To get list of data members dynamically --%>
+       %>
+        <table>
+            <% for(i=0;i<fields.length();i++){ %>
+            <tr>
+                <td><% fields[i] %></td>
+                <td><% s.get(fields[i]); %></td>
+            </tr>
+            <% } %>
+    
+    </table>
+    </body>
 </html>
