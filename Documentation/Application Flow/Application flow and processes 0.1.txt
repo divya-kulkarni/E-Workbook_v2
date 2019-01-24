@@ -40,9 +40,7 @@ NOTE: PLEASE ALTER THE FLOW IF NEEDED AND RAISE THE VERSION OF DOCUMENT AND SEND
 
 
 
-*	session on memberid
-css for subj list
-*	ongoing----->overdue/currently assigned/submitted
-*	only one login modal
-*	don't accept role
-alert instead of errorIndex.html
+--------------------------******-------------------------------
+
+Write code for signup
+plus tasks assigned on whatsapp group
