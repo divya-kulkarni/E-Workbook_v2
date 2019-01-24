@@ -24,7 +24,7 @@ Admin:
 -------------------------------------------------------------------------------------------------------------------------------
 Teacher:
 --------------------------------------------------------------------------------------------------------------------------------
-	Teaches can teach multiple subjects. Hence can be associated with multiple batches.
+	Teachers can teach multiple subjects. Hence can be associated with multiple batches.
 	
 	1. See batch list.
 	2. Select batch from the list. When batch is selected the assignments allocated to the batch should be shown sorted on basis of AssignedDate. There will be a button 'View submissions' which will give the list from StudentAssignment table for AssignmentID and BatchID (BatchID will be fetched on basis of memberID).
