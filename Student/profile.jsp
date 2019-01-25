@@ -1,3 +1,23 @@
+<%@ page import="onLoad.*" %>
+<%@ page import="java.lang.String" %>
+<%@ page import="profile.*" %>
+<% 
+	
+	String memberID=(String)session.getAttribute("memberID");
+	Student stud=new Student(memberID);
+	
+	
+	
+	String s[] = getSubjects.getSubjectList(memberID);
+        int cnt=0;
+	for(int i=0;i<s.length;i++)
+	{
+	   if(s[i]!=null)
+	  	cnt++;
+	}
+%>
+
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
@@ -33,6 +53,17 @@
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
+    
+    <style>
+    	body
+    	{
+    		background:white;
+    	}
+    	li
+    	{
+    		color:white;
+    	}
+    </style>
 
 </head>
 
@@ -58,7 +89,7 @@
             <h2 class="header__nav-heading h6">Navigate to</h2>
 
             <ul class="header__nav">
-                <li class="current"><a href="index.HTML" title="">Home</a></li>
+                <li class="current"><a href="http://localhost:8080/Project/Student/index.jsp" title="">Home</a></li>
                 <li class="has-children">
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
@@ -67,17 +98,16 @@
                         <li><a href="../index.html">Logout</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a href="#assg">Subjects</a>
+                 <li class="has-children"><a href="#assg">Subjects</a>
                     <ul class="header__nav">
-                        <li><a href="Assignment_list/assgList__syspro.html">Syspro</a></li>
-                        <li><a href="Assignment_list/assgList__java1.html">Java 1</a></li>
-                        <li><a href="Assignment_list/assgList__java2.html">Java 2</a></li>
-                        <li><a href="Assignment_list/assgList_PHP1.html">PHP 1</a></li>
-                        <li><a href="Assignment_list/assgList__PHP2.html">PHP 2</a></li>
-                        <li><a href="Assignment_list/assgList__os.html">OS</a></li>
-                        <li><a href="Assignment_list/assgList__cg.html">CG</a></li>
+                    <% int i;
+                    	for(i=0;i<cnt;i++) 
+                   { %>
+                   	
+                        <li><a href="Assignment_list/assgList__cg.jsp"><%= s[i] %></a></li>
+                        <% } %>
                     </ul>
-                 </li>
+               </li>
                 
             </ul> <!-- end header__nav -->
 
@@ -92,17 +122,31 @@
     <br>
     <br>
     
-    <%
-        Student s = new Student();
-       String fields[] = s.getFields();       <%-- To get list of data members dynamically --%>
-       %>
+    
+              <%-- To get list of data members dynamically --%>
+       
         <table>
-            <% for(i=0;i<fields.length();i++){ %>
             <tr>
-                <td><% fields[i] %></td>
-                <td><% s.get(fields[i]); %></td>
+                <td>Member Id</td>
+                <td><%= stud.getMemberID() %></td>
             </tr>
-            <% } %>
+           <tr>
+                <td>Username</td>
+                <td><%= stud.getUserName() %></td>
+            </tr>
+             <tr>
+                <td>Password</td>
+                <td><%= stud.getPassword() %></td>
+            </tr>
+             <tr>
+                <td>Name</td>
+                <td><%= stud.getName() %></td>
+            </tr>
+             <tr>
+                <td>Role</td>
+                <td><%= stud.getRole() %></td>
+            </tr>
+            
     
     </table>
     </body>

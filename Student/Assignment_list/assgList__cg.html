@@ -1,3 +1,27 @@
+<%@ page import="onLoad.*" %>
+<%@ page import="java.lang.String" %>
+<%
+
+   String memberID=(String)session.getAttribute("memberID");
+   String s[] = getSubjects.getSubjectList(memberID);
+   int cnt=0,tcnt=0,j=0,i=0;
+   for(i=0;i<s.length;i++)
+   {
+   	if(s[i]!=null)
+   		cnt++;
+   }
+   String topics[][]=new String[8][8];
+   for(i=0;i<cnt;i++)
+   {
+   		topics[i]=getTopic.getTopicList(s[i]);
+   }
+ 
+%> 
+
+
+
+
+
 <html>
     <head>
         <style>
@@ -166,11 +190,11 @@ function show() {
             <h2 class="header__nav-heading h6">Navigate to</h2>
 
             <ul class="header__nav">
-                <li class="current"><a href="../index.HTML" title="">Home</a></li>
+                <li class="current"><a href="http://localhost:8080/Project/Student/index.jsp" title="">Home</a></li>
                 <li class="has-children">
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="http://localhost:8080/Project/Student/profile.jsp">Profile</a></li>
                         <li><a href="../Forum/index.html">Forum</a></li>
                         <li><a href="../index.html">Logout</a></li>
                     </ul>
