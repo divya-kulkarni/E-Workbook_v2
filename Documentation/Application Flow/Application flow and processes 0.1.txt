@@ -42,5 +42,4 @@ NOTE: PLEASE ALTER THE FLOW IF NEEDED AND RAISE THE VERSION OF DOCUMENT AND SEND
 
 --------------------------******-------------------------------
 
-Write code for signup
-plus tasks assigned on whatsapp group
+Display Admin profile information

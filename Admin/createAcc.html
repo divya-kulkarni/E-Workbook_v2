@@ -56,6 +56,11 @@
                 width: 300px;
             }
             
+            #student,#teacher
+            {
+                display: none;
+            }
+            
         </style>
         
         <!--- basic page needs
@@ -92,6 +97,44 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <script>
+        function showStudent() {
+          var x = document.getElementById("toHide");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+
+            var y = document.getElementById("student");
+            if (y.style.display === "block")
+                y.style.display = "none";
+            else
+                y.style.display = "block";
+        }
+
+        function showTeacher() {
+          var x = document.getElementById("toHide");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+
+            var y = document.getElementById("teacher");
+            if (y.style.display === "block")
+                y.style.display = "none";
+            else
+                y.style.display = "block";
+        }    
+            
+        function showAlert()
+            {
+                confirm("Account created!");
+            }
+        </script>
+        
         
     </head>
     
@@ -138,20 +181,95 @@
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-9" id="toHide">
-                    <h2>Add details to the fields below:</h2>
-                    <form action="newAccount.jsp" method="post">
-                        <select name="role">
-                            <option>Student</option>
-                            <option>Teacher</option>
-                        </select>
-                    </form>
-                   
+                    <h3>Select role for new account:</h3>                    
+                    <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Role
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="showStudent()">Student</a></li>
+                        <li><a href="#" onclick="showTeacher()">Teacher</a></li>
+                    </ul>
+                    </div>
                 </div>
                 
                 <!-- Aligning table and button -->
                 <div class="col-lg-1">
                 </div>
                 
+                <div class="col-lg-9">
+                    <div id="student">
+                        
+                    <form method="post" class="form-validate">
+                        
+                        <input type="text" name="mid" placeholder="Member ID" required>
+                        <br><br>
+                        
+                        <input type="text" name="uname" placeholder="Username" required>
+                        <br><br>
+                        
+                        <input type="password" name="password" placeholder="Password" required>
+                        <br><br>
+                        
+                        <input type="text" name="rollNo" placeholder="Roll No." required>
+                        <br><br>
+                        
+                        <input type="text" name="name" placeholder="Student Name" required>
+                        <br><br>
+                        
+                        <input type="text" name="birthDate" placeholder="Birth Date" required>
+                        <br><br>
+                        
+                        <input type="number" name="phoneNo" placeholder="Contact Number" required>
+                        <br><br>
+                        
+                        <input type="text" name="batchID" placeholder="Batch ID" required>
+                        <br><br>
+                        
+                        <input type="text" name="classID" placeholder="Class ID" required>
+                        <br><br>
+                        <button class="btn" onclick="showAlert()">Create</button>
+                    </form>
+                    &nbsp;&nbsp;&nbsp;
+                    <button class="btn" onclick="show()">Back</button>
+                    </div>
+    
+                    
+        <!--Teacher-->
+                    <div id="teacher">
+                        
+                    <form method="post" class="form-validate">
+                        
+                        <input type="text" name="midTeacher" placeholder="Member ID" required>
+                        <br><br>
+                        
+                        <input type="text" name="unameTeacher" placeholder="Username" required>
+                        <br><br>
+                        
+                        <input type="password" name="passwordTeacher" placeholder="Password" required>
+                        <br><br>
+                        
+                        <input type="text" name="rollNo" placeholder="Roll No." required>
+                        <br><br>
+                        
+                        <input type="text" name="name" placeholder="Teacher Name" required>
+                        <br><br>
+                        
+                        <input type="password" name="birthDateTeacher" placeholder="Birth Date" required>
+                        <br><br>
+                        
+                        <input type="password" name="phoneNoTeacher" placeholder="Contact Number" required>
+                        <br><br>
+                        
+                        <input type="password" name="classID" placeholder="Class ID" required>
+                        <br><br>
+                        <button class="btn" onclick="showAlert()">Create</button>
+                    </form>
+                    &nbsp;&nbsp;&nbsp;
+                    <button class="btn" onclick="show()">Back</button>
+                    </div>
+                
+                </div>
+                    
             </div>
         </div>
     </body>
