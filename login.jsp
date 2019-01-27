@@ -3,17 +3,23 @@
 	String p=request.getParameter("pass");
 	out.println("I am here");
 	String s=login.loginValidation(u,p);
-	if(login.rolecmp("Student",s)==1)
+	out.println(s);
+	if("ERROR".equals(s))
+		out.println("ERRPR");
+	else
 	{
 		String memberID=getMemberID.getMemberId(u);
 		session.setAttribute("memberID",memberID);
-		String redirectURL = "http://localhost:8080/Project/Student/index.jsp";
-    		response.sendRedirect(redirectURL);
-    	}
+		if(login.rolecmp("Student",s)==1)
+		{
+			String redirectURL = "http://localhost:8080/Project/Student/index.jsp";
+			response.sendRedirect(redirectURL);
+		}
 
-	else
-	{
-		out.println("I am here false ");	
+		else
+		{
+			out.println("I am here false ");	
 	
+		}
 	}
 %>
