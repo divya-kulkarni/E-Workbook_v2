@@ -10,16 +10,25 @@
 	{
 		String memberID=getMemberID.getMemberId(u);
 		session.setAttribute("memberID",memberID);
+		
 		if(login.rolecmp("Student",s)==1)
 		{
 			String redirectURL = "http://localhost:8080/Project/Student/index.jsp";
 			response.sendRedirect(redirectURL);
-		}
-
-		else
+			
+		}	
+		else if(login.rolecmp("Student",s)==1)
 		{
-			out.println("I am here false ");	
-	
+			String redirectURL = "http://localhost:8080/Project/Student/index.jsp";
+			response.sendRedirect(redirectURL);
+			
 		}
+		else if(login.rolecmp("Teacher",s)==3)
+		{
+			String redirectURL = "http://localhost:8080/Project/Student/index.jsp";
+			response.sendRedirect(redirectURL);
+			
+		}
+		
 	}
 %>

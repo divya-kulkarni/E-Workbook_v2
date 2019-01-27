@@ -18,7 +18,13 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 <head>
+	<script>
+		function getValue(a)
+		{
+			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assgList__cg.jsp?param="+a.innerHTML;
+		}
 
+	</script>
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
@@ -87,14 +93,20 @@
                     </ul>
                 </li>
                  <li class="has-children"><a href="#assg">Subjects</a>
-                    <ul class="heafer__nav">
+                 	
+                    <ul class="header__nav">
+                   
                     <% int i;
                     	for(i=0;i<cnt;i++) 
                    { %>
                    	
-                        <li><a href="Assignment_list/assgList__cg.jsp"><%= s[i] %></a></li>
+                   		 
+                        <li><a href="#" onclick="getValue(this);"><%= s[i] %></a></li>
+                       
                         <% } %>
+                     
                     </ul>
+                   
                </li>
                 
             </ul> <!-- end header__nav -->

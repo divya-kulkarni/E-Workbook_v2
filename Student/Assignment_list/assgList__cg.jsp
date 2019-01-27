@@ -4,33 +4,36 @@
 
    String memberID=(String)session.getAttribute("memberID");
    String s[] = getSubjects.getSubjectList(memberID);
-   int cnt=0,tcnt[]=new int[10],j=0,i=0,c=0;
+   int cnt=0,tcnt=0,j=0,i=0,c=0;
    for(i=0;i<s.length;i++)
    {
    	if(s[i]!=null)
    		cnt++;
    }
-   String topics[][]=new String[8][8];
-   for(i=0;i<cnt;i++)
+
+ 	String s1=request.getParameter("param");
+	out.println(s1);
+	
+	
+	String topics[]=getTopic.getTopicList(s1);
+	for(i=0;i<topics.length;i++)
    {
-   		topics[i]=getTopic.getTopicList(s[i]);
+   	if(topics[i]!=null)
+   		tcnt++;
    }
-   for(i=0;i<cnt;i++)
-   {
-   		c=0;
-   		for(j=0;j<topics.length;j++)
-   		{
-   			if(topics[i][j]!=null)
-   				c++;
-   		}
-   		tcnt[i]=c;
-   }
- 
 %> 
+
 
 
 <html>
     <head>
+    	<script>
+		function getValue(a)
+		{
+			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assgList__cg.jsp?param="+a.innerHTML;
+		}
+
+	</script>
         <style>
             .vertical-menu 
             {
@@ -212,10 +215,12 @@ function show() {
                 <li class="has-children"><a href="#assg">Subjects</a>
                     <ul class="heafer__nav">
                     <% 
+                    	
                     	for(i=0;i<cnt;i++) 
                    { %>
                    	
-                        <li><a href="Assignment_list/assgList__cg.jsp"><%= s[i] %></a></li>
+                        <li><a href="#" onclick="getValue(this);"><%= s[i] %></a></li>
+                       
                         <% } %>
                     </ul>
                </li>
@@ -235,10 +240,12 @@ function show() {
                    <div class="vertical-menu"> 
                    <a href="#" class="active">Home</a>
                     <% 
-                    	for(i=0;i<c;i++)
+                    	
+                    	for(i=0;i<tcnt;i++)
                     	{
+                    		
                     %>
-                    	<a href="#"><%= topics[2][i] %></a>
+                    	<a href="#"><%= topics[i] %></a>
                     <% } %>
                     </div>
                  </div>
