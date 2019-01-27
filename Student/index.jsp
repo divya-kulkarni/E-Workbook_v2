@@ -89,7 +89,7 @@
                     <ul class="sub-menu">
                         <li><a href="http://localhost:8080/Project/Student/profile.jsp">Profile</a></li>
                         <li><a href="../Forum/index.html">Forum</a></li>
-                        <li><a href="../index.html">Logout</a></li>
+                        <li><a href="../logout.jsp">Logout</a></li>
                     </ul>
                 </li>
                  <li class="has-children"><a href="#assg">Subjects</a>

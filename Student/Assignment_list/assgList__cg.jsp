@@ -4,7 +4,7 @@
 
    String memberID=(String)session.getAttribute("memberID");
    String s[] = getSubjects.getSubjectList(memberID);
-   int cnt=0,tcnt=0,j=0,i=0,c=0;
+   int cnt=0,tcnt=0,acnt=0,j=0,i=0,c=0;
    for(i=0;i<s.length;i++)
    {
    	if(s[i]!=null)
@@ -20,6 +20,13 @@
    {
    	if(topics[i]!=null)
    		tcnt++;
+   }
+   
+   String assg[]=getTopic.getAssgList(s1);
+   for(i=0;i<assg.length;i++)
+   {
+   	if(assg[i]!=null)
+   		acnt++;
    }
 %> 
 
@@ -245,7 +252,7 @@ function show() {
                     	{
                     		
                     %>
-                    	<a href="#"><%= topics[i] %></a>
+                    	<a href="#" onclick="getValue(this);"><%= topics[i] %></a>
                     <% } %>
                     </div>
                  </div>
@@ -264,37 +271,17 @@ function show() {
                             <th>Submit Date</th>
                             <th>View Assignment</th>
                         </tr>
-                        <tr class="assglist">
-                            <td>1</td>
-                            <td class="cell expand-small-on-hover">Write a program to gbnfxgnghm dgdfbdx dgdfndh</td>
-                            <td>12/12/2018</td>
-                            <td>24/12/2018</td>
-                            <td><button class="btn" onclick="show()">View Assignment</button> </td>
+                        <% for(i=0;i<acnt;i++)
+                        	{
+                        %>
+                         <tr class="assglist">
+                            <th>Sr No</th>
+                            <th>Assignment</th>
+                            <th>Assigned Date</th>
+                            <th>Submit Date</th>
+                            <th>View Assignment</th>
                         </tr>
-                        
-                        <tr class="assglist">
-                            <td>2</td>
-                            <td class="cell expand-small-on-hover">Write a program to print Hello world that will also connect to database</td>
-                            <td>12/12/2018</td>
-                            <td>24/12/2018</td>
-                            <td><button class="btn" onclick="show()">View Assignment</button> </td>
-                        </tr>
-                        
-                        <tr class="assglist">
-                            <td>3</td>
-                            <td class="cell expand-small-on-hover">Write a program to efesgvdr gesrhs egws</td>
-                            <td>12/12/2018</td>
-                            <td>24/12/2018</td>
-                            <td><button class="btn" onclick="show()">View Assignment</button> </td>
-                        </tr>
-                        
-                        <tr>
-                            <td>4</td>
-                            <td class="cell expand-small-on-hover">Write a program to vfdv rgbdbhx sefsrgd</td>
-                            <td>12/12/2018</td>
-                            <td>24/12/2018</td>
-                            <td><button class="btn" onclick="show()">View Assignment</button> </td>
-                        </tr>
+                        <% } %>
                     </table>
                 </div>
                 
