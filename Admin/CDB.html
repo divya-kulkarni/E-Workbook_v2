@@ -99,6 +99,7 @@
     {
         document.getElementById("click").innerHTML = '<object type="text/html" data="somePage.html" height="800px" width="800px" ></object>';
     }
+    
 </script>
         
     </head>
@@ -145,11 +146,13 @@
                 <br><br>
                 <div class="col-lg-1">
                 </div>
-                <div class="col-lg-9" id="toHide">
+                <div class="col-lg-9">
                     <br><br><br>
-                   <button onclick="createBatch.html">Create Batch</button><br><br>
-                   <button onclick="createDivision.html">Create Division</button><br><br>
-                   <button onclick="createClass.html">Create Class</button><br><br>
+                   <button type="button" class="btn" onclick="createBatch.html">Create Batch</button>
+                    <br><br>
+                   <button type="button" class="btn" onclick="createDivision.html">Create Division</button><br><br>
+                   <button type="button" class="btn" onclick="createClass.html">Create Class</button>
+                    <br><br>
                 </div>
                 
                 <!-- Aligning table and button -->

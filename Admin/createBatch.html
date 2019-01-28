@@ -93,6 +93,15 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         
+        <script>
+    
+        function createMsg()
+        {
+            alert("Batch created successfully!");
+        }
+        
+    </script>
+        
     </head>
     
     <body>
@@ -137,13 +146,32 @@
                 
                 <div class="col-lg-1">
                 </div>
-                <div class="col-lg-9" id="toHide">
-                    
-                </div>
-                
-                <!-- Aligning table and button -->
-                <div class="col-lg-1">
-                </div>
+                <form class="form-validate" action="batch.jsp">
+                <input type="text" name="batchID" placeholder="Batch ID">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="batchName" placeholder="Batch Name">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="batchNo" placeholder="Batch Number">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="classID" placeholder="Class ID">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="divisionID" placeholder="Division ID">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <button class="btn" onclick="createMsg()">Create!</button>
+                </form>
+                    <!-- Aligning table and button -->
+                    <div class="col-lg-1">
+                    </div>
                 
             </div>
         </div>

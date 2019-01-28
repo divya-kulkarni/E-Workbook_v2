@@ -4,12 +4,13 @@ Admin:
 	1. Create student and teacher accounts. Add data in students/teachers table and user table at the time of creation from excel file.
 	2. Disable accounts. Make IsActive = false.
 	3. Manage class, division, batches.
-		- Create class			**
-		- Create division		**
-		- Link division to classes	**
-		- Create batches			**
-		- Link batches to class and divisions	**include classid,divisionID
-		- Select range of students to be added to batch(starting an ending roll number)
+		- Create class
+		- Create division
+		- Link division to classes
+		- Create batches
+		- Link batches to class and divisions
+		- For adding students in batch will get list of students in the class and division related with batch
+		- Select range of students to be added to batch or can have checkboxes
 		- Add students to batches
 	4. Manage subjects, topics, assignments.
 		- Create subjects
@@ -42,3 +43,5 @@ NOTE: PLEASE ALTER THE FLOW IF NEEDED AND RAISE THE VERSION OF DOCUMENT AND SEND
 --------------------------******-------------------------------
 
 Display Admin profile information
+Manage subjects, topics and assignments
+Create remarks
