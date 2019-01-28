@@ -61,7 +61,7 @@
         <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Create batch</title>
+    <title>Admin's Dashboard</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -92,15 +92,14 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
-        <script>
-    
-        function createMsg()
-        {
-            alert("Student added successfully!");
-        }
-        
-    </script>
+
+
+<script>
+    function load()
+    {
+        document.getElementById("click").innerHTML = '<object type="text/html" data="somePage.html" height="800px" width="800px" ></object>';
+    }
+</script>
         
     </head>
     
@@ -135,31 +134,27 @@
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
-                    <a href="index.HTML">Home</a>
+                    <a href="index.HTML" class="active">Home</a>
                     <a href="createAcc.html">Create account</a>
                     <a href="#">Disable account</a>
-                    <a href="CDB.html" class="active">Manage class, division & batches</a>
+                    <a href="CDB.html">Manage class, division & batches</a>
                     <a href="#">Manage subjects, topics & assignments</a>
                     <a href="#">Create remarks</a>
                     </div>
                 </div>
-                
+                <br><br>
                 <div class="col-lg-1">
                 </div>
-               
-                <input type="text" name="batchID" placeholder="Batch ID">
-                <br><br>
-                    <div class="col-lg-1">
-                    </div>
-                <input type="text" name="memberID" placeholder="Member ID">
-                <br><br>
-                    <div class="col-lg-1">
-                    </div>
-                <button class="btn" onclick="createMsg()">Add!</button>
-               
-                    <!-- Aligning table and button -->
-                    <div class="col-lg-1">
-                    </div>
+                <div class="col-lg-9" id="toHide">
+                    <br><br><br>
+                   <h3>Some image to fill div</h3>
+                    <button class="btn" id="click" onclick="load()">Show
+                    </button>
+                </div>
+                
+                <!-- Aligning table and button -->
+                <div class="col-lg-1">
+                </div>
                 
             </div>
         </div>

@@ -9,7 +9,7 @@ Admin:
 		- Link division to classes	**
 		- Create batches			**
 		- Link batches to class and divisions	**include classid,divisionID
-		- Select range of students to be added to batch(starting an ending roll number)
+		- Select range of students to be added to batch(starting and ending roll number)
 		- Add students to batches
 	4. Manage subjects, topics, assignments.
 		- Create subjects
@@ -26,6 +26,7 @@ Teacher:
 	Teachers can teach multiple subjects. Hence can be associated with multiple batches.
 	
 	1. See batch list.
+	Give assignment (bid,assgID
 	2. Select batch from the list. When batch is selected the assignments allocated to the batch should be shown sorted on basis of AssignedDate. There will be a button 'View submissions' which will give the list from StudentAssignment table for AssignmentID and BatchID (BatchID will be fetched on basis of memberID).
 	3. Teacher can give remarks. Remark can be given only once.
 	4. From (2), when batch is selected teacher can give assignment to the batch. There will be a button on top corner saying 'Give assignment'.

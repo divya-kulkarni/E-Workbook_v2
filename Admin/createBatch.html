@@ -5,7 +5,7 @@
             {
                 width: 120%;
                 height: 100%;
-                background-color: #eee;
+                background-color: #C3C6C7;
                 /* Set a width if you like */
             }
 
@@ -135,35 +135,27 @@
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
-                    <a href="#">Home</a>
+                    <a href="index.HTML">Home</a>
                     <a href="createAcc.html">Create account</a>
                     <a href="#">Disable account</a>
-                    <a href="createBatch.html" class="active">Manage class, division & batches</a>
-                    <a href="#">Manage subjects, topics & assignments</a>
-                    <a href="#">Create remarks</a>
+                    <a href="CDB.html">Manage class, division & batches</a>
+                    <a href="STA.html">Manage subjects, topics & assignments</a>
+                    <a href="remarks.html" class="active">Create remarks</a>
                     </div>
                 </div>
                 
                 <div class="col-lg-1">
                 </div>
                 <form class="form-validate" action="batch.jsp">
-                <input type="text" name="batchID" placeholder="Batch ID">
+                <input type="text" name="remarkID" placeholder="Remark ID">
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                <input type="text" name="batchName" placeholder="Batch Name">
+                <input type="text" name="remark" placeholder="Remark">
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                <input type="text" name="batchNo" placeholder="Batch Number">
-                <br><br>
-                    <div class="col-lg-1">
-                    </div>
-                <input type="text" name="classID" placeholder="Class ID">
-                <br><br>
-                    <div class="col-lg-1">
-                    </div>
-                <input type="text" name="divisionID" placeholder="Division ID">
+                <input type="number" name="marks" placeholder="Marks">
                 <br><br>
                     <div class="col-lg-1">
                     </div>
@@ -172,7 +164,6 @@
                     <!-- Aligning table and button -->
                     <div class="col-lg-1">
                     </div>
-                
             </div>
         </div>
     </body>
