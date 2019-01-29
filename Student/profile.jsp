@@ -57,7 +57,7 @@
     <style>
     	body
     	{
-    		background:lightslategray;
+    		background:white;
     	}
     	li
     	{

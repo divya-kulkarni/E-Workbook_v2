@@ -19,6 +19,24 @@ public class getTopic
 		
 		return topics;
 	}
+	public static String[] getAssgList(String t)throws Exception
+	{
+		Class.forName("org.postgresql.Driver");
+		int i=0;
+		String assg[]=new String[14];
+		Connection connection=DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres"," ");
+		PreparedStatement preparedStatement = connection.prepareStatement("select assignmentname from assignmentmaster where topicid=?");
+		preparedStatement.setString(1,t); 
+		ResultSet resultSet = preparedStatement.executeQuery();
+		while(resultSet.next())
+		{
+			//System.out.println(resultSet.getString(1));
+			//System.out.println(resultSet.getString(1));
+			assg[i++]=resultSet.getString(1);
+		}
+		
+		return assg;
+	}
 }
 		
 		

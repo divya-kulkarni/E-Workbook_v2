@@ -16,33 +16,51 @@ public class login
 		ResultSet resultSet = preparedStatement.executeQuery();
 		if (resultSet.next())
 		{
+			//System.out.println("******************");
 			if(resultSet.getBoolean(8))
+	   		{
+	   			//System.out.println("******************");
 	   			return resultSet.getString(10);
+	   		
+	   		}
 	   	}
 	   	return "ERROR";
+	   	
     }
-	public static int rolecmp(String s,String s1)
+	public static String rolecmp(String s)
 	{
 		String a="Student";
 		String b="Admin";
 		String c="Teacher";
-		if(a.equals(s))
+		if(myEquals(a,s))
 		{
 			System.out.println("ROLE VALID");
-			return 1;
+			return "http://localhost:8080/Project/Student/index.jsp";
 		}
-		if(b.equals(s))
+		if(myEquals(b,s))
 		{
 			System.out.println("ROLE VALID");
-			return 2;
+			return "http://localhost:8080/Project/Admin/index.jsp";
 		}
-		if(c.equals(s))
+		if(myEquals(c,s))
 		{
 			System.out.println("ROLE VALID");
-			return 3;
+			return "http://localhost:8080/Project/Student/index.jsp";
 		}
 		else
 			System.out.println("ROLE NOT VALID");
-		return 0;
+		return "http://localhost:8080/Project/index.html";
+	}
+	public static boolean myEquals(String s,String s1)
+	{
+		
+		for(int i=0;i<s.length();)
+		{
+			if(s.charAt(i)==s1.charAt(i))
+				i++;
+			else
+				return false;
+		}
+		return true;
 	}
 }
