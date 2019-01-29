@@ -10,32 +10,19 @@
    	if(s[i]!=null)
    		cnt++;
    }
-
- 	String s1=request.getParameter("param");
- 	
-	out.println(s1);
 	
-	
-	String topics[]=getTopic.getTopicList(s1);
-	for(i=0;i<topics.length;i++)
+ 	String topic=request.getParameter("param");
+ 	String assg[]=getTopic.getAssgList(topic);
+   for(i=0;i<assg.length;i++)
    {
-   	if(topics[i]!=null)
-   		tcnt++;
+   	if(assg[i]!=null)
+   		acnt++;
    }
+   out.println(assg[0]);
 %> 
 
 <html>
     <head>
-    	<script>
-		function getValue(a)
-		{
-			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assgList__cg.jsp?param="+a.innerHTML;
-		}
-		function getValueA(a)
-		{
-			window.location.href="http://localhost:8080/Project/Student/Assignment_list/topic.jsp?param="+a.innerHTML;
-		}
-	</script>
         <style>
             .vertical-menu 
             {
@@ -180,6 +167,13 @@
 
 <!-- Hiding table and contents -->
 <script>
+
+function getValue(a)
+		{
+			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assgList__cg.jsp?param="+a.innerHTML;
+		}
+
+
 function show() {
   var x = document.getElementById("toHide");
   if (x.style.display === "none") {
@@ -221,7 +215,7 @@ function show() {
                     	for(i=0;i<cnt;i++) 
                    { %>
                    	
-                        <li><a href="#" onclick="getValue(this);"><%= s[i] %></a></li>
+                        <li><a href="#"><%= s[i] %></a></li>
                        
                         <% } %>
                     </ul>
@@ -240,14 +234,14 @@ function show() {
             <div class="row fullWidth">
                 <div class="col-lg-2">
                    <div class="vertical-menu"> 
-                   <a href="#" class="active">Home</a>
+                   <a href="topic.jsp" class="active"><%= topic %></a>
                     <% 
                     	
-                    	for(i=0;i<tcnt;i++)
+                    	for(i=0;i<acnt;i++)
                     	{
                     		
                     %>
-                    	<a href="#" onclick="getValueA(this);"><%= topics[i] %></a>
+                    	<a href="#" onclick="getValue(this);"><%= assg[i] %></a>
                     <% } %>
                     </div>
                  </div>
@@ -258,27 +252,8 @@ function show() {
                 </div>
                 </div>
                 <div class="col-lg-9" id="toHide">
-                    <table border="3">
-                        <tr class="assglist">
-                            <th>Sr No</th>
-                            <th>Assignment</th>
-                            <th>Assigned Date</th>
-                            <th>Submit Date</th>
-                            <th>View Assignment</th>
-                        </tr>
-                        <% for(i=0;i<acnt;i++)
-                        	{
-                        %>
-                         <tr class="assglist">
-                            <th>Sr No</th>
-                            <th>Assignment</th>
-                            <th>Assigned Date</th>
-                            <th>Submit Date</th>
-                            <th>View Assignment</th>
-                        </tr>
-                        <% } %>
-                    </table>
-                </div>
+                	
+                 </div>
                 
                 <!-- Aligning table and button -->
                 <div class="col-lg-1">
@@ -297,5 +272,4 @@ function show() {
         </div>
     </body>
 </html>
-
 

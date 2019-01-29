@@ -110,13 +110,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<script>
-    function createMsg()
-    {
-        alert("Creation successful!");
-    }
-    
-</script>
+
         
     </head>
     
@@ -184,20 +178,32 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                       <form class="form-validate" action="batch.jsp">
-                <input type="text" name="remarkID" placeholder="Remark ID">
+                    <form class="form-validate" action="batch.jsp">
+                <input type="text" name="batchID" placeholder="Batch ID">
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                <input type="text" name="remark" placeholder="Remark">
+                 <input type="text" name="batchNo" placeholder="Batch No">
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                <input type="number" name="marks" placeholder="Marks">
+                    <input type="text" name="classID" placeholder="Class ID">
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                <button type="button" class="btn centerbtn" onclick="createMsg()">Create!</button>
+                    <input type="text" name="divID" placeholder="Division ID">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="sRoll" placeholder="Starting roll number">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="eRoll" placeholder="Ending roll number">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <button type="button" class="btn centerbtn">Create!</button>
                            &nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
                 </form>

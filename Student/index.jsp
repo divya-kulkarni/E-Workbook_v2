@@ -23,6 +23,12 @@
 		{
 			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assgList__cg.jsp?param="+a.innerHTML;
 		}
+		
+    		function logoutAlert()
+    		{
+    			alert("Logout Succesfull");
+    		}
+    
 
 	</script>
     <!--- basic page needs
@@ -89,7 +95,7 @@
                     <ul class="sub-menu">
                         <li><a href="http://localhost:8080/Project/Student/profile.jsp">Profile</a></li>
                         <li><a href="../Forum/index.html">Forum</a></li>
-                        <li><a href="../logout.jsp">Logout</a></li>
+                        <li><a href="../logout.jsp" onclick="logoutAlert();">Logout</a></li>
                     </ul>
                 </li>
                  <li class="has-children"><a href="#assg">Subjects</a>
