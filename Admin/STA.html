@@ -1,6 +1,12 @@
 <html>
     <head>
         <style>
+            
+            input
+            {
+                width: 100%;
+            }
+            
             .vertical-menu 
             {
                 width: 120%;
@@ -161,10 +167,10 @@
                     <div class="vertical-menu">
                     <a href="index.HTML">Home</a>
                     <a href="createAcc.html">Create account</a>
-                    <a href="#">Disable account</a>
+                    <a href="#" data-toggle="modal" data-target="#disable">Disable account</a>
                     <a href="CDB.html">Manage class, division & batches</a>
                     <a href="STA.html" class="active">Manage subjects, topics & assignments</a>
-                    <a href="remarks.html">Create remarks</a>
+                    <a href="#" data-toggle="modal" data-target="#remarks">Create remarks</a>
                     </div>
                 </div>
                 <br><br>
@@ -203,11 +209,11 @@
                             <input type="text" name="subjectID" placeholder="Subject ID">
                            <input type="text" name="subjectName" placeholder="Subject Name">
                         </form>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        &nbsp;&nbsp;&nbsp;
                     <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
+                    </div>
+                    
                 </div>
                 </div>
                 </div>
@@ -286,6 +292,63 @@
                 </div>
                 </div>
     
+                <!-- Modal Disable -->
+                    <div class="modal fade" id="disable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Disable Account</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                        
+                        <input type="text" name="mid" placeholder="Member ID to disable" required>
+                        <br><br>
+                        
+                        <input type="password" name="password" placeholder="Your password" required>
+                        <br><br>
+                        <button class="btn" onclick="showAlert()">Disable</button>
+                             &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
+                    </form>
+                    </div>
+                </div>
+                </div>
+                </div>    
+                        
+                        
+                        <!-- Modal to create remarks -->
+                    <div class="modal fade" id="remarks" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Create Remarks</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" class="form-validate">
+                        
+                        <input type="text" name="remarkID" placeholder="Remark ID">
+                    <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="remark" placeholder="Remark ID">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <button class="btn" onclick="createMsg()">Add!</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
+                    </form>
+                    </div>
+                </div>
+                </div>
+                </div>    
                 
                 <!-- Aligning table and button -->
                 <div class="col-lg-1">
