@@ -1,4 +1,3 @@
-<%@ page import="Admin.*" %>
 <html>
     <head>
         <style>
@@ -6,7 +5,7 @@
             {
                 width: 120%;
                 height: 100%;
-                background-color: #C3C6C7;
+                background-color: #eee;
                 /* Set a width if you like */
             }
 
@@ -57,12 +56,22 @@
                 width: 300px;
             }
             
+            #student,#teacher
+            {
+                display: none;
+            }
+            
+            input
+            {
+                width: 100%;
+            }
+            
         </style>
         
         <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Admin's Dashboard</title>
+    <title>Create account</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -93,19 +102,47 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <script>
+        function showStudent(a) {
+         window.location.href="http://localhost:8080/Project/Admin/ca.html?param="+"Student"; 
+          var x = document.getElementById("toHide");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
 
+            var y = document.getElementById("student");
+            if (y.style.display === "block")
+                y.style.display = "none";
+            else
+                y.style.display = "block";
+                
+             
+        }
 
-<script>
-    function showAlert(id)
-    {
-    	//svar id = ;
-     	
-     }
-     function getValueD(a)
-     {
-	window.location.href="http://localhost:8080/Project/Admin/index.jsp?param="+a.innerHTML;
-     }
-</script>
+        function showTeacher() {
+          var x = document.getElementById("toHide");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          } else {
+            x.style.display = "none";
+          }
+
+            var y = document.getElementById("teacher");
+            if (y.style.display === "block")
+                y.style.display = "none";
+            else
+                y.style.display = "block";
+        }    
+            
+        function showAlert()
+            {
+                confirm("Account created!");
+            }
+        </script>
+        
         
     </head>
     
@@ -140,24 +177,142 @@
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
-                    <a href="index.HTML" class="active">Home</a>
-                    <a href="createAcc.html">Create account</a>
+                    <a href="index.HTML">Home</a>
+                    <a href="createAcc.html" class="active">Create account</a>
                     <a href="#" data-toggle="modal" data-target="#disable">Disable account</a>
                     <a href="CDB.html">Manage class, division & batches</a>
                     <a href="sta.html">Manage subjects, topics & assignments</a>
                     <a href="#" data-toggle="modal" data-target="#remarks">Create remarks</a>
+                    </div>
                 </div>
-                <br><br>
+                
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-9" id="toHide">
-                    <br><br><br>
-                   <h3>Some image to fill div</h3>
-                    <button class="btn" id="click" onclick="load()">Show
-                    </button>
+                    <h3>Select role for new account:</h3>                                        
+                    <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Role
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick="showStudent();">Student</a></li>
+                        <li><a href="#" onclick="showTeacher(); ">Teacher</a></li>
+                    </ul>
+                    </div>
                 </div>
                 
-                <!-- Modal Disable -->
+                <!-- Aligning table and button -->
+                <div class="col-lg-1">
+                </div>
+                
+                <div class="col-lg-9">
+                    <div id="student">
+                        
+                    <form method="post" class="form-validate" action="createAcc.jsp">
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="mid" placeholder="Member ID" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="uname" placeholder="Username" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="rollNo" placeholder="Roll No." required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="name" placeholder="Student Name" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="birthDate" placeholder="Birth Date" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="number" name="phoneNo" placeholder="Contact Number" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="batchID" placeholder="Batch ID" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="classID" placeholder="Class ID" required>
+                        <br><br>
+                        <div class="col-lg-1">
+                </div>
+                        <button class="btn">Create</button>
+                    </form>
+                    &nbsp;&nbsp;&nbsp;
+                        <div class="col-lg-1">
+                </div>
+                    <button class="btn" onclick="show()">Back</button>
+                    </div>
+    
+                    
+        <!--Teacher-->
+                    <div id="teacher">
+                        
+                    <form method="post" class="form-validate" action="createAcc.jsp">
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="midTeacher" placeholder="Member ID" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="unameTeacher" placeholder="Username" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="password" name="passwordTeacher" placeholder="Password" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="rollNo" placeholder="Roll No." required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="text" name="name" placeholder="Teacher Name" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="password" name="birthDatesss" placeholder="Birth Date" required>
+                        <br><br>
+                        
+                        <div class="col-lg-1">
+                </div>
+                        <input type="password" name="phoneNoTeacher" placeholder="Contact Number" required>
+                        <br><br>
+                                         
+                        <div class="col-lg-1">
+                </div>
+                        <button class="btn">Create</button>
+                    </form>
+                    &nbsp;&nbsp;&nbsp;
+                    <button class="btn" onclick="show()">Back</button>
+                    </div>
+                    
+                    <!-- Modal Disable -->
                     <div class="modal fade" id="disable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -168,11 +323,12 @@
                     </button>
                     </div>
                     <div class="modal-body">
-                        <form method="post" class="form-validate" action="disable.jsp">
+                        <form method="post" class="form-validate">
                         
-                        <input type="text" name="mid" id="mid" placeholder="Member ID to disable" required>
+                        <input type="text" name="mid" placeholder="Member ID to disable" required>
                         <br><br>
-                        <button class="btn">Disable</button>
+
+                        <button class="btn" onclick="showAlert()">Disable</button>
                              &nbsp;&nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
                     </form>
@@ -212,11 +368,8 @@
                 </div>
                 </div>    
                 
-                
-                <!-- Aligning table and button -->
-                <div class="col-lg-1">
                 </div>
-                
+                    
             </div>
         </div>
     </body>

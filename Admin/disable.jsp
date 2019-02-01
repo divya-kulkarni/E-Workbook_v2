@@ -1,6 +1,7 @@
 <%@ page import="Admin.*" %>
 <%
 	
+	out.println(Disable.disableMember(request.getParameter("mid")));
 	if(Disable.disableMember(request.getParameter("mid")))
 	{
      		out.println("<script type=\"text/javascript\">");

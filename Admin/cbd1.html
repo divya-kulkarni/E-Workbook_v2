@@ -2,11 +2,11 @@
     <head>
         <style>
             
-            input
+            input::placeholder
             {
-                width: 100%;
+                color:black;
+                
             }
-            
             .vertical-menu 
             {
                 width: 120%;
@@ -62,17 +62,22 @@
                 width: 300px;
             }
             
-            form
+            input
             {
-                align-items: center;
+                text-align: center;
+                width:100%;
             }
             
+            .centerbtn
+            {
+                align-self: center;
+            }
         </style>
         
         <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Students, Topics and Assignments</title>
+    <title>Classes, Divisions and Batches</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -105,32 +110,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<script>
-    function batch()
-    {
-        var url="file:///C:/Users/kpramod43/Desktop/TY/Project/GITnewUI/newUI/Admin/createBatch.html";
-        window.location=url;
-    }
-    
-    function createClass()
-    {
-        var url="file:///C:/Users/kpramod43/Desktop/TY/Project/GITnewUI/newUI/Admin/createClass.html";
-        window.location=url;
-    }
-    
-    function division()
-    {
-        var url="file:///C:/Users/kpramod43/Desktop/TY/Project/GITnewUI/newUI/Admin/createDivision.html";
-        window.location=url;
-    }
-    
-    function addStud()
-    {
-        var url="file:///C:/Users/kpramod43/Desktop/TY/Project/GITnewUI/newUI/Admin/addStudToBatch.html";
-        window.location=url;
-    }
-    
-</script>
+
         
     </head>
     
@@ -167,9 +147,9 @@
                     <div class="vertical-menu">
                     <a href="index.HTML">Home</a>
                     <a href="createAcc.html">Create account</a>
-                    <a href="#" data-toggle="modal" data-target="#disable">Disable account</a>
-                    <a href="CDB.html">Manage class, division & batches</a>
-                    <a href="STA.html" class="active">Manage subjects, topics & assignments</a>
+                    <a href="#"  data-toggle="modal" data-target="#disable">Disable account</a>
+                    <a href="CDB.html" class="active">Manage class, division & batches</a>
+                    <a href="STA.html">Manage subjects, topics & assignments</a>
                     <a href="#" data-toggle="modal" data-target="#remarks">Create remarks</a>
                     </div>
                 </div>
@@ -178,122 +158,148 @@
                 </div>
                 <div class="col-lg-9">
                     <br><br><br>
-                    
-                    <!-- Button trigger modal -->
-                    
-                    <button type="button" class="btn" data-toggle="modal" data-target="#createSub">Create Subject</button>
+                   
+                    <button type="button" class="btn" data-toggle="modal" data-target="#createBatch">Create Batch</button>
                     <br><br>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#linkSubAndClass">Link Subject and Class</button>
+                    <button type="button" class="btn" data-toggle="modal" data-target="#createDiv">Create Division</button>
                     <br><br>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#createTopics">Create Topics</button>
+                    <button type="button" class="btn" data-toggle="modal" data-target="#createClass">Create Class</button>
                     <br><br>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#linktopicAndSub">Link Topic and Subject</button>
-                    <br><br>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#createAssg">Create Assignment</button>
-                    <br><br>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#linkTopics">Link Topics and Assignments</button>
-                    <br><br>
-                    
+                    <button type="button" class="btn" data-toggle="modal" data-target="#addStud">Add Student to Batch</button>
                     
                     <!-- Modal -->
-                    <div class="modal fade" id="createSub" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal fade" id="createBatch" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Create Subject</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Create Batch</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
                     <div class="modal-body">
-                       <form action="createSubject.jsp" method="post">
-                            <input type="text" name="subjectID" placeholder="Subject ID">
-                           <input type="text" name="subjectName" placeholder="Subject Name">
-                        </form>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        &nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <form class="form-validate" action="batch.jsp">
+                <input type="text" name="batchID" placeholder="Batch ID">
+                <br><br>
+                    <div class="col-lg-1">
                     </div>
+                 <input type="text" name="batchNo" placeholder="Batch No">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                    <input type="text" name="classID" placeholder="Class ID">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                    <input type="text" name="divID" placeholder="Division ID">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="sRoll" placeholder="Starting roll number">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="eRoll" placeholder="Ending roll number">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <button type="button" class="btn centerbtn">Create!</button>
+                           &nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
+                </form>
+                    </div>
+                </div>
+                </div>
+                </div>
                     
-                </div>
-                </div>
-                </div>
-                
-                
-                
-                <!-- Modal -->
-                    <div class="modal fade" id="linkSubAndClass" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <!-- Modal -->
+                    <div class="modal fade" id="createDiv" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Link Class and Subject</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Create Division</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
                     <div class="modal-body">
-                       <form action="classSubject.jsp" method="post">
-                            <input type="text" name="subjectID" placeholder="Subject ID">
-                           <input type="text" name="classID" placeholder="Class ID">
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                       <form class="form-validate" action="division.jsp">
+                <input type="text" name="divisionID" placeholder="Division ID">
+                <br><br>
+                    <div class="col-lg-1">
                 </div>
+                <input type="text" name="divisionName" placeholder="Division Name">
+                <br><br>
+                    <div class="col-lg-1">
+                </div>
+                <button class="btn centerbtn" onclick="createMsg()">Create!</button>
+                           &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="createClass" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Create Class</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                       <form class="form-validate" action="class.jsp">
+                <input type="text" name="classID" placeholder="Class ID">
+                <br><br>
+                    <div class="col-lg-1">
+                </div>
+                <input type="text" name="className" placeholder="Class Name">
+                <br><br>
+                    <div class="col-lg-1">
+                </div>
+                <button class="btn centerbtn" onclick="createMsg()">Create!</button>
+                           &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
+                </form>
+                    </div>
+                </div>
+                </div>
+                </div>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="addStud" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Add student</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                       <form class="form-validate" action="addStudToBatch.jsp">
+                <input type="text" name="batchID" placeholder="Batch ID">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="memberID" placeholder="Member ID">
+                <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                 <button class="btn btn-primary" onclick="createMsg()">Add!</button>
+                           &nbsp;&nbsp;&nbsp;
+                    <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
+                </form>
+                    </div>
                 </div>
                 </div>
                 </div>
                 
-            
-                <!-- Modal -->
-                    <div class="modal fade" id="createTopics" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Create Topics</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                       <form action="createSubject.jsp" method="post">
-                            <input type="text" name="toppicID" placeholder="Topic ID">
-                            <input type="text" name="topicName" placeholder="Topic Name">
-                            <input type="text" name="subjectID" placeholder="Subject ID">
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
-        
-    <!-- Modal -->
-                    <div class="modal fade" id="createAssg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Create Assignment</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                       did not understand
-                    </div>
-                    <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-                </div>
-                </div>
-                </div>
-    
-                <!-- Modal Disable -->
+                    <!-- Modal Disable -->
                     <div class="modal fade" id="disable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
@@ -347,10 +353,14 @@
                 </div>
                 </div>
                 </div>    
+                        
+                    
+                </div>
                 
                 <!-- Aligning table and button -->
                 <div class="col-lg-1">
                 </div>
+                
             </div>
         </div>
     </body>

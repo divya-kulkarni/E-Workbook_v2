@@ -104,7 +104,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         
         <script>
-        function showStudent() {
+        function showStudent(a) {
           var x = document.getElementById("toHide");
           if (x.style.display === "none") {
             x.style.display = "block";
@@ -132,7 +132,11 @@
                 y.style.display = "none";
             else
                 y.style.display = "block";
-        }    
+        }  
+        
+        function go()
+        {
+        }  
             
         function showAlert()
             {
@@ -178,7 +182,7 @@
                     <a href="createAcc.html" class="active">Create account</a>
                     <a href="#" data-toggle="modal" data-target="#disable">Disable account</a>
                     <a href="CDB.html">Manage class, division & batches</a>
-                    <a href="STA.html">Manage subjects, topics & assignments</a>
+                    <a href="sta.html">Manage subjects, topics & assignments</a>
                     <a href="#" data-toggle="modal" data-target="#remarks">Create remarks</a>
                     </div>
                 </div>
@@ -186,13 +190,13 @@
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-9" id="toHide">
-                    <h3>Select role for new account:</h3>                    
+                    <h3>Select role for new account:</h3>                                        
                     <div class="dropdown">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Role
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="#" onclick="showStudent()">Student</a></li>
-                        <li><a href="#" onclick="showTeacher()">Teacher</a></li>
+                        <li><a href="#" onclick="showStudent();">Student</a></li>
+                        <li><a href="#" onclick="showTeacher(); ">Teacher</a></li>
                     </ul>
                     </div>
                 </div>
@@ -204,7 +208,7 @@
                 <div class="col-lg-9">
                     <div id="student">
                         
-                    <form method="post" class="form-validate">
+                    <form method="post" class="form-validate" action="createAcc.jsp">
                         
                         <div class="col-lg-1">
                 </div>
@@ -252,19 +256,19 @@
                         <br><br>
                         <div class="col-lg-1">
                 </div>
-                        <button class="btn" onclick="showAlert()">Create</button>
+                        <button class="btn" onclick="go()">Create</button>
                     </form>
                     &nbsp;&nbsp;&nbsp;
                         <div class="col-lg-1">
                 </div>
-                    <button class="btn" onclick="show()">Back</button>
+                    <button class="btn">Back</button>
                     </div>
     
                     
         <!--Teacher-->
                     <div id="teacher">
                         
-                    <form method="post" class="form-validate">
+                    <form method="post" class="form-validate" action="createAcc.jsp">
                         
                         <div class="col-lg-1">
                 </div>
@@ -293,19 +297,14 @@
                         
                         <div class="col-lg-1">
                 </div>
-                        <input type="password" name="birthDateTeacher" placeholder="Birth Date" required>
+                        <input type="password" name="birthDate" placeholder="Birth Date" required>
                         <br><br>
                         
                         <div class="col-lg-1">
                 </div>
                         <input type="password" name="phoneNoTeacher" placeholder="Contact Number" required>
                         <br><br>
-                        
-                        <div class="col-lg-1">
-                </div>
-                        <input type="password" name="classID" placeholder="Class ID" required>
-                        <br><br>
-                        
+                                         
                         <div class="col-lg-1">
                 </div>
                         <button class="btn">Create</button>
