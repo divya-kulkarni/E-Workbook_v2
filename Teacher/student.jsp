@@ -2,29 +2,15 @@
 <% 
 	String mid=(String)session.getAttribute("memberID");
 	String cn=(String)session.getAttribute("cn");
-	session.setAttribute("bn",request.getParameter("param"));
 	String bn=(String)session.getAttribute("bn");
 	
 	
-	Batchstud stud[]=Batchstud.getStudentList(request.getParameter("param"),cn);
+	Batchstud stud[]=Batchstud.getStudentList(bn,cn);
 	int cnt;
 	for(cnt=0;cnt<20;cnt++)
 	{
 		if(stud[cnt]==null)
 			break;
-	}
-	String sub1[]=Batchsub.getSubList(mid,bn,cn);
-	int cnt1;
-	for(cnt1=0;cnt1<20;cnt1++)
-	{
-		if(sub1[cnt1]==null)
-			break;
-	}
-	String sub[]=new String[cnt];
-	for(int j=0;j<cnt;j++)
-	{
-		sub[j]=new String();
-		sub[j]=sub1[j];
 	}
 		
 %>
@@ -144,7 +130,7 @@
 
             <ul class="header__nav">
                 <li><img src="logo.png"></li>
-                <li class="current"><a href="index.jsp"  title="">Home</a></li>
+                <li class="current"><a href="index.jsp" title="">Home</a></li>
                 <li class="has-children">
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
@@ -165,10 +151,10 @@
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
-                    <a href="#" class="active"onclick="go(this);"><%= bn %></a>
+                   <a href="#" class="active"onclick="go(this);"><%= bn %></a>
                     <a href="class.jsp">View Batches</a>
                     <a href="student.jsp">Student List</a>
-                    <a href="subject.jsp">Subjects</a>
+                    <a href="subject.jsp">Assignments</a>
                     </div>
                 </div>
                 <br><br><br>
@@ -176,7 +162,21 @@
                 </div>
                 
                <div class="col-lg-9">
-               
+               <table>
+               <tr>
+               <th>Roll NO</th>
+               <th>Name</th> 
+               </tr>
+                   <!-- <h3>Entire list of batches alloted to memberID</h3><br><br> -->
+                   <% for(int i=0;i<cnt;i++)
+                   {
+                   %>
+                   <tr>
+                   <td><%= stud[i].getrollno()   %></td>
+                   <td><%= stud[i].getName()   %></td>
+                   </tr>
+                   <% } %>
+                  </table>
                 </div>
                 </div>
             </div>

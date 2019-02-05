@@ -3,6 +3,8 @@
 	String cn=(String)session.getAttribute("cn");
 	String bn=(String)session.getAttribute("bn");
 	String sn=(String)session.getAttribute("sn");
+	session.setAttribute("an",request.getParameter("param"));
+	
 	
 	Batchassg assg[]=Batchassg.getAssgList(sn,bn,cn);
 	int cnt;
@@ -218,8 +220,13 @@ function show() {
                     <br><br>
                     <button class="btn" onclick="show()">Back to list</button>
                     </div>
-                
+                <form action="remarks1.jsp">
+                <br><br><br><br>
+               <button class="btn" onlick=" window.location.href='remarks.jsp';" >Give remark</button>
+                	hi am here
+                </form>
                 </div>
+                
             </div>
         </div>
     </body>

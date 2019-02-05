@@ -1,6 +1,38 @@
+<%@ page import="onLoad.*" %>
+<% 
+	String mid=(String)session.getAttribute("memberID");
+	String cn=(String)session.getAttribute("cn");
+	String bn=(String)session.getAttribute("bn");
+	
+	String sub[]=Batchsub.getSubList(mid,bn,cn);
+	int cnt1;
+	for(cnt1=0;cnt1<20;cnt1++)
+	{
+		if(sub[cnt1]==null)
+			break;
+	}
+	
+		
+%>
+
 <html>
     <head>
+    <script>
+    function go(a)
+    	{
+    		window.location.href="http://localhost:8080/Project/Teacher/batchDetails.jsp?param="+a.innerHTML;
+    	}
+    	function goassg(a)
+    	{
+    		window.location.href="http://localhost:8080/Project/Teacher/assgList.jsp?param="+a.innerHTML;
+    	}
+    </script>
         <style>
+        	.sub
+	{
+		color:black;
+		font-size:18;
+	}
             .vertical-menu 
             {
                 width: 120%;
@@ -50,12 +82,17 @@
                 margin-bottom: 0 !important;
             }
             
+            .black
+            {
+            	color:black; !important 
+            }
+            
         </style>
         
         <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>View Submissions</title>
+    <title>View Batch</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -98,12 +135,11 @@
 
             <ul class="header__nav">
                 <li><img src="logo.png"></li>
-                <li class="current"><a href="../index.HTML" title="">Home</a></li>
+                <li class="current"><a href="index.jsp" title="">Home</a></li>
                 <li class="has-children">
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
                         <li><a href="profile.jsp">Profile</a></li>
-                        <li><a href="../Forum/index.html">Forum</a></li>
                         <li><a href="../logout.jsp">Logout</a></li>
                     </ul>
                 </li>
@@ -120,42 +156,26 @@
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
-                    <a href="index.HTML">Home</a>
-                    <a href="batch.jsp"  class="active">View Batches</a>
+                    <a href="#" class="active"onclick="go(this);"><%= bn %></a>
+                    <a href="class.jsp">View Batches</a>
+                    <a href="student.jsp">Student List</a>
+                    <a href="subject.jsp">Subjects</a>
                     </div>
+                </div>
+                <br><br><br>
                 <div class="col-lg-1">
                 </div>
-               
-                    <br><br><br>
-                   <table>
-                    <tr>
-                        <th>Student Name</th>
-                        <th>Remark</th>
-                        <th>Button</th>
-                    </tr>
-                       <tr>
-                        <td>Divya</td>
-                        <td><div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Remarks
-                    <span class="caret"></span></button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Outstanding</a></li>
-                        <li><a href="#">Very Good</a></li>
-                        <li><a href="#">Good</a></li>
-                        <li><a href="#">Needs ImprovementFair</a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                    </div></td>
-                           <td><button type="submit" class="btn">Submit Remark</button></td>
-                       </tr>
-                       <tr>
-                       <td>Rutuja</td>
-                           <td>Very Good</td>
-                           <td>Disabled button</td>
-                       </tr>
-                    </table>
+                
+               <div class="col-lg-9">
+                  <h4>Subjects</h4>
+                  <% for(int i=0;i<cnt1;i++)
+                   {
+                   %>
+                   <a href="#" class="sub" onclick=" goassg(this); "><%= sub[i] %></a><br>
+                   <% } %>
+                </div>
                 </div>
             </div>
-        </div>
+        
     </body>
 </html>
