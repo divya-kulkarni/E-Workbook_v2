@@ -45,7 +45,7 @@ public class login
 		if(myEquals(c,s))
 		{
 			System.out.println("ROLE VALID");
-			return "http://localhost:8080/Project/Student/index.jsp";
+			return "http://localhost:8080/Project/Teacher/index.jsp";
 		}
 		else
 			System.out.println("ROLE NOT VALID");

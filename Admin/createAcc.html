@@ -104,7 +104,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         
         <script>
-        function showStudent(a) {
+        function showStudent() {
           var x = document.getElementById("toHide");
           if (x.style.display === "none") {
             x.style.display = "block";
@@ -134,10 +134,14 @@
                 y.style.display = "block";
         }  
         
-        function go()
+        function Student()
         {
+            window.location.href="http://localhost:8080/E_Workbook/Admin/newStud.jsp";
         }  
-            
+        function teacher()
+        {
+            window.location.href="http://localhost:8080/E_Workbook/Admin/newTeacher.jsp";
+        }   
         function showAlert()
             {
                 confirm("Account created!");
@@ -160,7 +164,7 @@
                 <li class="has-children">
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
-                        <li><a href="#">Profile</a></li>
+                        <li><a href="profile.jsp">Profile</a></li>
                         <li><a href="../Forum/index.html">Forum</a></li>
                         <li><a href="../index.html">Logout</a></li>
                     </ul>
@@ -189,9 +193,9 @@
                 
                 <div class="col-lg-1">
                 </div>
-                <div class="col-lg-9" id="toHide">
+                <div class="col-lg-9">
                     <h3>Select role for new account:</h3>                                        
-                    <div class="dropdown">
+                    <div class="dropdown" id="toHide">
                     <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Role
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
@@ -208,7 +212,7 @@
                 <div class="col-lg-9">
                     <div id="student">
                         
-                    <form method="post" class="form-validate" action="createAcc.jsp">
+                    <form method="post" class="form-validate" action="newStud.jsp">
                         
                         <div class="col-lg-1">
                 </div>
@@ -237,11 +241,6 @@
                         
                         <div class="col-lg-1">
                 </div>
-                        <input type="text" name="birthDate" placeholder="Birth Date" required>
-                        <br><br>
-                        
-                        <div class="col-lg-1">
-                </div>
                         <input type="number" name="phoneNo" placeholder="Contact Number" required>
                         <br><br>
                         
@@ -256,7 +255,7 @@
                         <br><br>
                         <div class="col-lg-1">
                 </div>
-                        <button class="btn" onclick="go()">Create</button>
+                        <button class="btn" onclick="Student();">Create</button>
                     </form>
                     &nbsp;&nbsp;&nbsp;
                         <div class="col-lg-1">
@@ -268,7 +267,7 @@
         <!--Teacher-->
                     <div id="teacher">
                         
-                    <form method="post" class="form-validate" action="createAcc.jsp">
+                    <form method="post" class="form-validate" action="newTeacher.jsp">
                         
                         <div class="col-lg-1">
                 </div>
@@ -297,17 +296,12 @@
                         
                         <div class="col-lg-1">
                 </div>
-                        <input type="password" name="birthDate" placeholder="Birth Date" required>
-                        <br><br>
-                        
-                        <div class="col-lg-1">
-                </div>
-                        <input type="password" name="phoneNoTeacher" placeholder="Contact Number" required>
+                        <input type="text" name="phoneNoTeacher" placeholder="Contact Number" required>
                         <br><br>
                                          
                         <div class="col-lg-1">
                 </div>
-                        <button class="btn">Create</button>
+                        <button class="btn" onclick="teacher() ;">Create</button>
                     </form>
                     &nbsp;&nbsp;&nbsp;
                     <button class="btn" onclick="show()">Back</button>

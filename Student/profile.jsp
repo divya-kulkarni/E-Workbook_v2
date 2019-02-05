@@ -94,7 +94,6 @@
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
                         <li><a href="#">Profile</a></li>
-                        <li><a href="../Forum/index.html">Forum</a></li>
                         <li><a href="../index.html">Logout</a></li>
                     </ul>
                 </li>

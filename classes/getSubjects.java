@@ -28,7 +28,7 @@ public class getSubjects
     					System.out.println("ERROR");
 
 		}
-		PreparedStatement preparedStatement1 = connection.prepareStatement("select subjectname from subjectmaster,student,classmaster,classsubject where student.classid=classmaster.classid and classmaster.classid=classsubject.classid and subjectmaster.subjectid=classsubject.subjectid and student.classid=?");
+		PreparedStatement preparedStatement1 = connection.prepareStatement("select subjectname from subjectmaster,classmaster,classsubject where classmaster.classid=classsubject.classid and subjectmaster.subjectid=classsubject.subjectid and classmaster.classid=?");
 		preparedStatement1.setString(1,s);
 		ResultSet resultSet1 = preparedStatement1.executeQuery();
 		if (resultSet1!=null)

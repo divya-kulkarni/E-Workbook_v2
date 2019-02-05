@@ -1,3 +1,14 @@
+<%@ page import="onLoad.*" %>
+<%@ page import="java.lang.String" %>
+<%@ page import="profile.*" %>
+<% 
+	
+	String memberID=(String)session.getAttribute("memberID");
+	admin stud=new admin(memberID);
+%>
+
+
+<%@ page import="Admin.*" %>
 <html>
     <head>
         <style>
@@ -50,12 +61,18 @@
                 margin-bottom: 0 !important;
             }
             
+          .notLogo
+            {
+                height: 300px;
+                width: 300px;
+            }
+            
         </style>
         
         <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Teacher's Dashboard</title>
+    <title>Admin's Dashboard</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -87,6 +104,19 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
+<script>
+    function showAlert(id)
+    {
+    	//svar id = ;
+     	
+     }
+     function getValueD(a)
+     {
+	window.location.href="http://localhost:8080/Project/Admin/index.jsp?param="+a.innerHTML;
+     }
+</script>
+        
     </head>
     
     <body>
@@ -104,7 +134,7 @@
                     <ul class="sub-menu">
                         <li><a href="profile.jsp">Profile</a></li>
                         <li><a href="../Forum/index.html">Forum</a></li>
-                        <li><a href="../logout.jsp">Logout</a></li>
+                        <li><a href="../index.jsp">Logout</a></li>
                     </ul>
                 </li>
             </ul> <!-- end header__nav -->
@@ -114,26 +144,61 @@
         </nav> <!-- end header__nav-wrap -->
 
     </header> <!-- s-header -->
-        <br><br><br><br>
+    
+    <br><br><br>
+    
+    <br><br><br><br>
         <div class="container fullWidth noPadding">
             <div class="row fullWidth">
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
                     <a href="index.HTML" class="active">Home</a>
-                    <a href="batch.jsp">View Batches</a>
-                    </div>
+                    <a href="createAcc.html">Create account</a>
+                    <a href="#" data-toggle="modal" data-target="#disable">Disable account</a>
+                    <a href="CDB.html">Manage class, division & batches</a>
+                    <a href="sta.html">Manage subjects, topics & assignments</a>
+                    <a href="#" data-toggle="modal" data-target="#remarks">Create remarks</a>
+                </div>
+                </div>
+                <br><br>
                 <div class="col-lg-1">
                 </div>
-               
-                    <br><br><br>
-                   <h3>Some image to fill div</h3>
-                
-                
-                
-                    
+                <div class="col-lg-9" id="toHide">
+                <h3 align="center">My profile details</h3>
+    <br>
+              <table border="5" color="black">
+        	 <tr>
+                <td>Role</td>
+                <td><%= stud.getRole() %></td>
+            </tr>
+            <tr>
+                <td>Member Id</td>
+                <td><%= stud.getMemberID() %></td>
+            </tr>
+           <tr>
+                <td>Username</td>
+                <td><%= stud.getUserName() %></td>
+            </tr>
+             <tr>
+                <td>Password</td>
+                <td><%= stud.getPassword() %></td>
+            </tr>
+             <tr>
+                <td>Name</td>
+                <td><%= stud.getName() %></td>
+            </tr>
+            
+              <tr>
+                <td>Institute Name</td>
+                <td><%= stud.getIname() %></td>
+            </tr>
+            
+    
+    </table>
+
                 </div>
-            </div>
-        </div>
-    </body>
+             
+       
+            </body>
 </html>

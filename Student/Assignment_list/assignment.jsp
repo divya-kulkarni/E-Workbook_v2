@@ -12,6 +12,7 @@
    }
 	
  	String topic=request.getParameter("param");
+ 	session.setAttribute("topic",topic);
  	String assg[]=getTopic.getAssgList(topic);
    for(i=0;i<assg.length;i++)
    {
@@ -173,6 +174,10 @@ function getValue(a)
 			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assgList__cg.jsp?param="+a.innerHTML;
 		}
 
+function getValue1(a)
+{
+	window.location.href="http://localhost:8080/Project/Student/Assignment_list/topic1.jsp?param="+a.innerHTML;
+}
 
 function show() {
   var x = document.getElementById("toHide");
@@ -215,7 +220,7 @@ function show() {
                     	for(i=0;i<cnt;i++) 
                    { %>
                    	
-                        <li><a href="#"><%= s[i] %></a></li>
+                        <li><a href="#" onclick="getValue(this);"><%= s[i] %></a></li>
                        
                         <% } %>
                     </ul>
@@ -241,7 +246,7 @@ function show() {
                     	{
                     		
                     %>
-                    	<a href="#" onclick="getValue(this);"><%= assg[i] %></a>
+                    	<a href="#" onclick="getValue1(this);"><%= assg[i] %></a>
                     <% } %>
                     </div>
                  </div>

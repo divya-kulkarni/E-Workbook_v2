@@ -1,4 +1,10 @@
-<%@ page import="Admin.*" %>
+<%@ page import="onLoad.*" %>
+
+<%
+	String mid=(String)session.getAttribute("memberID");
+	
+%>
+
 <html>
     <head>
         <style>
@@ -51,18 +57,12 @@
                 margin-bottom: 0 !important;
             }
             
-          .notLogo
-            {
-                height: 300px;
-                width: 300px;
-            }
-            
         </style>
         
         <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Admin's Dashboard</title>
+    <title>Teacher's Dashboard</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -94,19 +94,6 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
-<script>
-    function showAlert(id)
-    {
-    	//svar id = ;
-     	
-     }
-     function getValueD(a)
-     {
-	window.location.href="http://localhost:8080/Project/Admin/index.jsp?param="+a.innerHTML;
-     }
-</script>
-        
     </head>
     
     <body>
@@ -140,83 +127,20 @@
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
-                    <a href="index.HTML" class="active">Home</a>
-                    <a href="createAcc.html">Create account</a>
-                    <a href="#" data-toggle="modal" data-target="#disable">Disable account</a>
-                    <a href="CDB.html">Manage class, division & batches</a>
-                    <a href="sta.html">Manage subjects, topics & assignments</a>
-                    <a href="#" data-toggle="modal" data-target="#remarks">Create remarks</a>
+                    <a href="index.jsp" class="active">Home</a>
+                    <a href="class.jsp">View Batches</a>
+                    </div>
                 </div>
-                <br><br>
                 <div class="col-lg-1">
                 </div>
-                <div class="col-lg-9" id="toHide">
+                
+               <div class="col-lg-9">
                     <br><br><br>
                    <h3>Some image to fill div</h3>
-                    <button class="btn" id="click" onclick="load()">Show
-                    </button>
-                </div>
                 
-                <!-- Modal Disable -->
-                    <div class="modal fade" id="disable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Disable Account</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" class="form-validate" action="disable.jsp">
-                        
-                        <input type="text" name="mid" id="mid" placeholder="Member ID to disable" required>
-                        <br><br>
-                        <button class="btn">Disable</button>
-                             &nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
-                    </form>
-                    </div>
-                </div>
-                </div>
-                </div>    
-                        
-                        
-                        <!-- Modal to create remarks -->
-                    <div class="modal fade" id="remarks" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Create Remarks</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="post" class="form-validate">
-                        
-                        <input type="text" name="remarkID" placeholder="Remark ID">
-                    <br><br>
-                    <div class="col-lg-1">
-                    </div>
-                <input type="text" name="remark" placeholder="Remark ID">
-                <br><br>
-                    <div class="col-lg-1">
-                    </div>
-                <button class="btn" onclick="createMsg()">Add!</button>
-                        &nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
-                    </form>
-                    </div>
-                </div>
-                </div>
-                </div>    
-                
-                
-                <!-- Aligning table and button -->
-                <div class="col-lg-1">
-                </div>
-                
+               </div>             
+                    
+               
             </div>
         </div>
     </body>

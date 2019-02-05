@@ -1,5 +1,6 @@
 <%@ page import="onLoad.*" %>
 <%@ page import="java.lang.String" %>
+
 <%
 
    String memberID=(String)session.getAttribute("memberID");
@@ -10,33 +11,22 @@
    	if(s[i]!=null)
    		cnt++;
    }
-
- 	String s1=request.getParameter("param");
-	out.println(s1);
 	
-	
-	String topics[]=getTopic.getTopicList(s1);
-	for(i=0;i<topics.length;i++)
+ 	String ass=request.getParameter("param");
+ 	String topic=(String)session.getAttribute("topic");
+ 	String assg[]=getTopic.getAssgList(topic);
+   for(i=0;i<assg.length;i++)
    {
-   	if(topics[i]!=null)
-   		tcnt++;
+   	if(assg[i]!=null)
+   		acnt++;
    }
+   out.println(assg[0]);
+   
+   showAssg as=new showAssg(ass);
 %> 
 
 <html>
     <head>
-    	<script>
-		function getValue(a)
-		{
-			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assgList__cg.jsp?param="+a.innerHTML;
-		}
-		function getValueA(a)
-		{
-			
-			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assignment.jsp?param="+a.innerHTML;
-			
-		}
-	</script>
         <style>
             .vertical-menu 
             {
@@ -181,6 +171,17 @@
 
 <!-- Hiding table and contents -->
 <script>
+
+function getValue(a)
+		{
+			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assgList__cg.jsp?param="+a.innerHTML;
+		}
+
+function getValue1(a)
+{
+	window.location.href="http://localhost:8080/Project/Student/Assignment_list/topic1.jsp?param="+a.innerHTML;
+}
+
 function show() {
   var x = document.getElementById("toHide");
   if (x.style.display === "none") {
@@ -241,45 +242,29 @@ function show() {
             <div class="row fullWidth">
                 <div class="col-lg-2">
                    <div class="vertical-menu"> 
-                   <a href="#" class="active">Home</a>
+                   <a href="topic.jsp" class="active"><%= topic %></a>
                     <% 
                     	
-                    	for(i=0;i<tcnt;i++)
+                    	for(i=0;i<acnt;i++)
                     	{
                     		
                     %>
-                    	<a href="#" onclick="getValueA(this);"><%= topics[i] %></a>
+                    	<a href="#" onclick="getValue1(this);"><%= assg[i] %></a>
                     <% } %>
                     </div>
                  </div>
-                </div>
                 
                 <br><br>
                 <div class="col-lg-1">
                 </div>
-                </div>
+              
                 <div class="col-lg-9" id="toHide">
-                    <table border="3">
-                        <tr class="assglist">
-                            <th>Sr No</th>
-                            <th>Assignment</th>
-                            <th>Assigned Date</th>
-                            <th>Submit Date</th>
-                            <th>View Assignment</th>
-                        </tr>
-                        <% for(i=0;i<acnt;i++)
-                        	{
-                        %>
-                         <tr class="assglist">
-                            <th>Sr No</th>
-                            <th>Assignment</th>
-                            <th>Assigned Date</th>
-                            <th>Submit Date</th>
-                            <th>View Assignment</th>
-                        </tr>
-                        <% } %>
-                    </table>
-                </div>
+                	<h2><%= request.getParameter("param") %><h2>
+                	<br><br>
+                	Assigned Date: <%= as.adate() %><br>
+                	Due Date: 	   <%= as.ddate() %><br><br><br>
+                	<%= as.ques() %>
+                 </div>
                 
                 <!-- Aligning table and button -->
                 <div class="col-lg-1">
@@ -293,6 +278,7 @@ function show() {
                     <br><br>
                     <button class="btn" onclick="show()">Back to list</button>
                     </div>
+                
                 </div>
             </div>
         </div>

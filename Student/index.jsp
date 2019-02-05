@@ -94,7 +94,6 @@
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
                         <li><a href="http://localhost:8080/Project/Student/profile.jsp">Profile</a></li>
-                        <li><a href="../Forum/index.html">Forum</a></li>
                         <li><a href="../logout.jsp" onclick="logoutAlert();">Logout</a></li>
                     </ul>
                 </li>

@@ -25,7 +25,7 @@ public class getTopic
 		int i=0;
 		String assg[]=new String[14];
 		Connection connection=DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres"," ");
-		PreparedStatement preparedStatement = connection.prepareStatement("select assignmentname from assignmentmaster where topicid=?");
+		PreparedStatement preparedStatement = connection.prepareStatement("select assignmentname from assignmentmaster where topicid=(select topicid from topicmaster where topicname=?)");
 		preparedStatement.setString(1,t); 
 		ResultSet resultSet = preparedStatement.executeQuery();
 		while(resultSet.next())

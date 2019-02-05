@@ -1,5 +1,24 @@
+<%@ page import="onLoad.*" %>
+<% 
+	String mid=(String)session.getAttribute("memberID");
+	String class1[]=getClass.getClassList(mid);
+	int cnt;
+	for(cnt=0;cnt<20;cnt++)
+	{
+		if(class1[cnt]==null)
+			break;
+	}
+%>
+
+
 <html>
     <head>
+    <script>
+    	function go(a)
+    	{
+    		window.location.href="http://localhost:8080/Project/Teacher/batch.jsp?param="+a.innerHTML;
+    	}
+    </script>
         <style>
             .vertical-menu 
             {
@@ -48,6 +67,12 @@
                 margin-right: 0 !important;
                 margin-top: 0 !important;
                 margin-bottom: 0 !important;
+            }
+            
+            .black
+            {
+            	color:black; !important 
+            	font-size:14;
             }
             
         </style>
@@ -123,14 +148,21 @@
                     <a href="index.HTML">Home</a>
                     <a href="batch.jsp"  class="active">View Batches</a>
                     </div>
+                </div>
+                <br><br><br>
                 <div class="col-lg-1">
                 </div>
-               
-                    <br><br><br>
-                   <h3>Entire list of batches alloted to memberID</h3><br><br>
-                   <a href="#">Batch No 1</a>
+                
+               <div class="col-lg-9">
+                   <h3>Entire list of classes alloted to memberID</h3><br><br>
+                   <% for(int i=0;i<cnt;i++)
+                   	{
+                   %>
+                   <a href="#" class="black" onclick="go(this); "><%= class1[i] %></a>
+                   <% } %>
+                </div>
                 </div>
             </div>
-        </div>
+        
     </body>
 </html>
