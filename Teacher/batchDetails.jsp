@@ -1,14 +1,32 @@
 <%@ page import="onLoad.*" %>
 <% 
 	String mid=(String)session.getAttribute("memberID");
-	String batch[]=getBatch.getBatchList(request.getParameter("param"),mid);
-	session.setAttribute("cn",request.getParameter("param"));
+	String cn=(String)session.getAttribute("cn");
+	session.setAttribute("bn",request.getParameter("param"));
+	String bn=(String)session.getAttribute("bn");
+	
+	
+	Batchstud stud[]=Batchstud.getStudentList(request.getParameter("param"),cn);
 	int cnt;
 	for(cnt=0;cnt<20;cnt++)
 	{
-		if(batch[cnt]==null)
+		if(stud[cnt]==null)
 			break;
 	}
+	String sub1[]=Batchsub.getSubList(mid,bn,cn);
+	int cnt1;
+	for(cnt1=0;cnt1<20;cnt1++)
+	{
+		if(sub1[cnt1]==null)
+			break;
+	}
+	String sub[]=new String[cnt];
+	for(int j=0;j<cnt;j++)
+	{
+		sub[j]=new String();
+		sub[j]=sub1[j];
+	}
+		
 %>
 
 <html>
@@ -17,6 +35,10 @@
     function go(a)
     	{
     		window.location.href="http://localhost:8080/Project/Teacher/batchDetails.jsp?param="+a.innerHTML;
+    	}
+    	function goassg(a)
+    	{
+    		window.location.href="http://localhost:8080/Project/Teacher/assgList.jsp?param="+a.innerHTML;
     	}
     </script>
         <style>
@@ -144,7 +166,9 @@
                     
                     <div class="vertical-menu">
                     <a href="index.jsp">Home</a>
-                    <a href="class.jsp"  class="active">View Batches</a>
+                    <a href="class.jsp">View Batches</a>
+                    <a href="batchDetails.jsp">Student List</a>
+                    <a href="batchDetails.jsp">Assignments</a>
                     </div>
                 </div>
                 <br><br><br>
@@ -152,11 +176,26 @@
                 </div>
                 
                <div class="col-lg-9">
-                   <h3>Entire list of batches alloted to memberID</h3><br><br>
+               <table>
+               <tr>
+               <th>Roll NO</th>
+               <th>Name</th> 
+               </tr>
+                   <!-- <h3>Entire list of batches alloted to memberID</h3><br><br> -->
                    <% for(int i=0;i<cnt;i++)
                    {
                    %>
-                   <a href="#" class="black" onclick=" go(this); "><%= batch[i] %></a><br>
+                   <tr>
+                   <td><%= stud[i].getrollno()   %></td>
+                   <td><%= stud[i].getName()   %></td>
+                   </tr>
+                   <% } %>
+                  </table>
+                  <h4>Subjects</h4>
+                  <% for(int i=0;i<cnt1;i++)
+                   {
+                   %>
+                   <a href="#" onclick=" goassg(this); "><%= sub[i] %></a><br>
                    <% } %>
                 </div>
                 </div>

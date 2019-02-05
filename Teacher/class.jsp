@@ -123,12 +123,11 @@
 
             <ul class="header__nav">
                 <li><img src="logo.png"></li>
-                <li class="current"><a href="../index.HTML" title="">Home</a></li>
+                <li class="current"><a href="index.jsp" title="">Home</a></li>
                 <li class="has-children">
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
                         <li><a href="profile.jsp">Profile</a></li>
-                        <li><a href="../Forum/index.html">Forum</a></li>
                         <li><a href="../logout.jsp">Logout</a></li>
                     </ul>
                 </li>
@@ -145,8 +144,8 @@
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
-                    <a href="index.HTML">Home</a>
-                    <a href="batch.jsp"  class="active">View Batches</a>
+                    <a href="index.jsp">Home</a>
+                    <a href="class.jsp"  class="active">View Batches</a>
                     </div>
                 </div>
                 <br><br><br>

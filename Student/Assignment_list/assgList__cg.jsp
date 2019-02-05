@@ -211,7 +211,7 @@ function show() {
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
                         <li><a href="http://localhost:8080/Project/Student/profile.jsp">Profile</a></li>
-                        <li><a href="../Forum/index.html">Forum</a></li>
+  
                         <li><a href="../index.html">Logout</a></li>
                     </ul>
                 </li>
@@ -241,7 +241,7 @@ function show() {
             <div class="row fullWidth">
                 <div class="col-lg-2">
                    <div class="vertical-menu"> 
-                   <a href="#" class="active">Home</a>
+                   <a href="#" class="active"><%= s1 %></a>
                     <% 
                     	
                     	for(i=0;i<tcnt;i++)

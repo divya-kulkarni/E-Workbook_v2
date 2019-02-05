@@ -7,24 +7,35 @@ public class Batchstud
 {
 	String name;
 	int rollno;
-	public static Batchstud[] getBatchList(String classname,String mid)throws Exception
+	public static Batchstud[] getStudentList(String bn,String cn)throws Exception
 	{
 		Class.forName("org.postgresql.Driver");
-		String s[]=new String[20];
+		Batchstud s[]=new Batchstud[20];
 		int i=0;
 		Connection connection=DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres"," ");
-		PreparedStatement preparedStatement = connection.prepareStatement(" select batchname from batchmaster,classmaster where batchmaster.classid=classmaster.classid and classmaster.classid=(select classid from classmaster where classname=?) and batchid IN (select batchmaster.batchid from batchmaster,teacher,teacherbatch where teacher.memberid=teacherbatch.memberid and batchmaster.batchid=teacherbatch.batchid and teacherbatch.memberid=?)");
-
-		preparedStatement.setString(1, classname);
-		preparedStatement.setString(2, mid);  
+		PreparedStatement preparedStatement = connection.prepareStatement("select studentname,rollno from student where batchid IN (select batchid from batchmaster where batchname=? and classid=(select classid from classmaster where classname=?))");
+		preparedStatement.setString(1, bn);  
+		preparedStatement.setString(2, cn); 
 		ResultSet resultSet = preparedStatement.executeQuery();
 		while(resultSet.next())
 	    {
-    					s[i++]=resultSet.getString(1);
+	    				s[i]=new Batchstud();
+    					s[i].name=resultSet.getString(1);
+    					s[i].rollno=resultSet.getInt(2);
+    					i++;
     					
 
 		}
 		return s;
+	}
+	public String getName()
+	{
+		return name;
+	}
+	
+	public int getrollno()
+	{
+		return rollno;
 	}
 		
 }

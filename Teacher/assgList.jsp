@@ -1,12 +1,15 @@
 <%@ page import="onLoad.*" %>
 <% 
-	String mid=(String)session.getAttribute("memberID");
-	String batch[]=getBatch.getBatchList(request.getParameter("param"),mid);
-	session.setAttribute("cn",request.getParameter("param"));
+	String cn=(String)session.getAttribute("cn");
+	String bn=(String)session.getAttribute("bn");
+	String sn=request.getParameter("param");
+	session.setAttribute("sn",sn);
+	
+	Batchassg assg[]=Batchassg.getAssgList(sn,bn,cn);
 	int cnt;
 	for(cnt=0;cnt<20;cnt++)
 	{
-		if(batch[cnt]==null)
+		if(assg[cnt]==null)
 			break;
 	}
 %>
@@ -17,6 +20,14 @@
     function go(a)
     	{
     		window.location.href="http://localhost:8080/Project/Teacher/batchDetails.jsp?param="+a.innerHTML;
+    	}
+    	function goassg(a)
+    	{
+    		window.location.href="http://localhost:8080/Project/Teacher/assgList.jsp?param="+a.innerHTML;
+    	}
+    	function myAssg(a)
+    	{
+    		window.location.href="http://localhost:8080/Project/Teacher/assg.jsp?param="+a.innerHTML;
     	}
     </script>
         <style>
@@ -143,8 +154,13 @@
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
-                    <a href="index.jsp">Home</a>
-                    <a href="class.jsp"  class="active">View Batches</a>
+                    <a href="#" class="active"><%= sn %></a>
+                    <% for(int i=0;i<cnt;i++)
+                    	{
+                    %>
+                    <a href="#" onclick=" myAssg(this); "><%= assg[i].aName() %></a>
+                    <% } %>
+                    
                     </div>
                 </div>
                 <br><br><br>
@@ -152,12 +168,7 @@
                 </div>
                 
                <div class="col-lg-9">
-                   <h3>Entire list of batches alloted to memberID</h3><br><br>
-                   <% for(int i=0;i<cnt;i++)
-                   {
-                   %>
-                   <a href="#" class="black" onclick=" go(this); "><%= batch[i] %></a><br>
-                   <% } %>
+                 
                 </div>
                 </div>
             </div>

@@ -173,6 +173,12 @@ function getValue(a)
 		{
 			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assgList__cg.jsp?param="+a.innerHTML;
 		}
+		function getValueA(a)
+		{
+			
+			window.location.href="http://localhost:8080/Project/Student/Assignment_list/assignment.jsp?param="+a.innerHTML;
+			
+		}
 
 function getValue1(a)
 {
@@ -209,7 +215,6 @@ function show() {
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
                         <li><a href="http://localhost:8080/Project/Student/profile.jsp">Profile</a></li>
-                        <li><a href="../Forum/index.html">Forum</a></li>
                         <li><a href="../index.html">Logout</a></li>
                     </ul>
                 </li>
@@ -239,7 +244,7 @@ function show() {
             <div class="row fullWidth">
                 <div class="col-lg-2">
                    <div class="vertical-menu"> 
-                   <a href="topic.jsp" class="active"><%= topic %></a>
+                   <a href="#" class="active" onclick="getValueA(this);"><%= topic %></a>
                     <% 
                     	
                     	for(i=0;i<acnt;i++)

@@ -1,24 +1,16 @@
 <%@ page import="onLoad.*" %>
+<%@ page import="java.lang.String" %>
+<%@ page import="profile.*" %>
 <% 
-	String mid=(String)session.getAttribute("memberID");
-	String batch[]=getBatch.getBatchList(request.getParameter("param"),mid);
-	session.setAttribute("cn",request.getParameter("param"));
-	int cnt;
-	for(cnt=0;cnt<20;cnt++)
-	{
-		if(batch[cnt]==null)
-			break;
-	}
+	
+	String memberID=(String)session.getAttribute("memberID");
+	teacher stud=new teacher(memberID);
 %>
 
+
+<%@ page import="Admin.*" %>
 <html>
     <head>
-    <script>
-    function go(a)
-    	{
-    		window.location.href="http://localhost:8080/Project/Teacher/batchDetails.jsp?param="+a.innerHTML;
-    	}
-    </script>
         <style>
             .vertical-menu 
             {
@@ -69,17 +61,30 @@
                 margin-bottom: 0 !important;
             }
             
-            .black
+          .notLogo
             {
-            	color:black; !important 
+                height: 300px;
+                width: 300px;
             }
-            
+            td
+            {
+            	color:black;
+            }
+            tr
+            {
+            	color:black;
+            }
+            table
+            {
+            	color:black;
+            }
         </style>
+        
         
         <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>View Batch</title>
+    <title>Admin's Dashboard</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -111,6 +116,19 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+
+<script>
+    function showAlert(id)
+    {
+    	//svar id = ;
+     	
+     }
+     function getValueD(a)
+     {
+	window.location.href="http://localhost:8080/Project/Admin/index.jsp?param="+a.innerHTML;
+     }
+</script>
+        
     </head>
     
     <body>
@@ -137,30 +155,54 @@
         </nav> <!-- end header__nav-wrap -->
 
     </header> <!-- s-header -->
-        <br><br><br><br>
+    
+    <br><br><br><br>
+    
+    
         <div class="container fullWidth noPadding">
             <div class="row fullWidth">
                 <div class="col-lg-2">
                     
                     <div class="vertical-menu">
-                    <a href="index.jsp">Home</a>
-                    <a href="class.jsp"  class="active">View Batches</a>
-                    </div>
+                    <a href="index.jsp" class="active">Home</a>
+                    <a href="class.jsp">veiw classes</a>
                 </div>
-                <br><br><br>
+                </div>
+                <br><br>
                 <div class="col-lg-1">
                 </div>
-                
-               <div class="col-lg-9">
-                   <h3>Entire list of batches alloted to memberID</h3><br><br>
-                   <% for(int i=0;i<cnt;i++)
-                   {
-                   %>
-                   <a href="#" class="black" onclick=" go(this); "><%= batch[i] %></a><br>
-                   <% } %>
+                <div class="col-lg-9" id="toHide">
+                <h3 align="center">My profile details</h3>
+    <br>
+              <table color="black">
+        	 <tr>
+                <td>Role</td>
+                <td><%= stud.getRole() %></td>
+            </tr>
+            <tr>
+                <td>Member Id</td>
+                <td><%= stud.getMemberID() %></td>
+            </tr>
+           <tr>
+                <td>Username</td>
+                <td><%= stud.getUserName() %></td>
+            </tr>
+             <tr>
+                <td>Password</td>
+                <td><%= stud.getPassword() %></td>
+            </tr>
+             <tr>
+                <td>Name</td>
+                <td><%= stud.getName() %></td>
+            </tr>
+            
+              
+            
+    
+    </table>
+
                 </div>
-                </div>
-            </div>
-        
-    </body>
+             
+       
+            </body>
 </html>
