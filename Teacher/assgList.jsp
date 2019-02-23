@@ -160,7 +160,7 @@
                     %>
                     <a href="#" onclick=" myAssg(this); "><%= assg[i].aName() %></a>
                     <% } %>
-                    
+                       <a href="giveAssg.jsp">Give Assignment</a>
                     </div>
                 </div>
                 <br><br><br>

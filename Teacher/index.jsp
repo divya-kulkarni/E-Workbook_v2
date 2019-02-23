@@ -57,6 +57,12 @@
                 margin-bottom: 0 !important;
             }
             
+            .notLogo
+            {
+            	height: 400px;
+            	width: 400px;
+            }
+            
         </style>
         
         <!--- basic page needs
@@ -135,7 +141,7 @@
                 
                <div class="col-lg-9">
                     <br><br><br>
-                   <h3>Some image to fill div</h3>
+                   <img src="img/man6.jpg" class="notLogo">
                 
                </div>             
                     

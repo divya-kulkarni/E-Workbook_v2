@@ -3,15 +3,15 @@ package onLoad;
 import java.sql.*;
 import java.io.*;
 
-public class showAssg
+public class showAssg1
 {
-	String aname,ques,id,info,remark;
+	String aname,ques,id,info;
 	Date adate,ddate;
-	public showAssg()
+	public showAssg1()
 	{
 	
 	}
-	public showAssg(String assgName,String mid)throws Exception
+	public showAssg1(String assgName)throws Exception
 	{
 		Class.forName("org.postgresql.Driver");
 		String assgId;
@@ -30,26 +30,16 @@ public class showAssg
     					ques=resultSet.getString(4);
     					info=resultSet.getString(5);
     					System.out.println("Id :"+id);
-    					preparedStatement = connection.prepareStatement("select * from assignmentbatch,studentassignment where assignmentbatch.assignmentid= studentassignment.assignmentid and studentassignment.assignmentid=? and memberid=?");
+    					preparedStatement = connection.prepareStatement("select * from assignmentbatch,studentassignment where assignmentbatch.assignmentid= studentassignment.assignmentid and studentassignment.assignmentid=?");
     					preparedStatement.setString(1, id);
-    					preparedStatement.setString(2, mid);
     					ResultSet resultSet1 = preparedStatement.executeQuery();
     					if(resultSet1.next())
     					{
     						adate=resultSet1.getDate(3);
     						ddate=resultSet1.getDate(4);
-    						remark=resultSet1.getString(7);
+    						
     					}
     					System.out.println("adate :"+adate);	
-    					preparedStatement = connection.prepareStatement("select remark from remarksmaster where remarkid=?");
-    					
-    					preparedStatement.setString(1, remark);
-    					resultSet1 = preparedStatement.executeQuery();
-    					if(resultSet1.next())
-    					{
-    						
-								remark=resultSet1.getString(1);
-						}
 		}
 		
 	}
@@ -72,10 +62,6 @@ public class showAssg
 	public String info()
 	{
 		return info;
-	}
-	public String remark()
-	{
-		return remark;
 	}
 	
 	

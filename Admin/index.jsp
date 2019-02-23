@@ -57,6 +57,12 @@
                 width: 300px;
             }
             
+            .notLogo
+            {
+                height:500px;
+                width:500px;
+            }
+            
         </style>
         
         <!--- basic page needs
@@ -147,14 +153,13 @@
                     <a href="sta.html">Manage subjects, topics & assignments</a>
                     <a href="#" data-toggle="modal" data-target="#remarks">Create remarks</a>
                 </div>
+                </div>
                 <br><br>
                 <div class="col-lg-1">
                 </div>
                 <div class="col-lg-9" id="toHide">
                     <br><br><br>
-                   <h3>Some image to fill div</h3>
-                    <button class="btn" id="click" onclick="load()">Show
-                    </button>
+                   <img class="notLogo" src="img/man2.jpg">
                 </div>
                 
                 <!-- Modal Disable -->

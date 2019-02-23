@@ -12,20 +12,20 @@
     String bid = request.getParameter("batchID");
     String cid = request.getParameter("classID");
 
-    out.print(bid);
+    out.print(cid);
 
 	
 /*if(!CreateMember.createMember(mid,uname,pwd,rno,name,ph,bid,cid,"Student"))
     {
      		out.println("<script type=\"text/javascript\">");
-   			out.println("alert('Yikes!!');");
+   			out.println("alert('ERROR!!');");
    			out.println("location='createAcc.html';");
    			out.println("</script>");
    	}
    	else
    	{
      		out.println("<script type=\"text/javascript\">");
-   			out.println("alert('Yaya!!');");
+   			out.println("alert('SUCCESS!!');");
    			out.println("location='createAcc.html';");
    			out.println("</script>");
    	}*/

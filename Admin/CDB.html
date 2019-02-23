@@ -1,5 +1,6 @@
 <html>
     <head>
+        
         <style>
             
             input::placeholder
@@ -165,7 +166,7 @@
                     <br><br>
                     <button type="button" class="btn" data-toggle="modal" data-target="#createClass">Create Class</button>
                     <br><br>
-                    <button type="button" class="btn" data-toggle="modal" data-target="#addStud">Add Student to Batch</button>
+                    
                     
                     <!-- Modal -->
                     <div class="modal fade" id="createBatch" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -177,29 +178,29 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body wrap-input100 validate-input">
                     <form class="form-validate" action="batch.jsp">
-                <input type="text" name="batchID" placeholder="Batch ID">
+                <input type="text" name="batchID" placeholder="Batch ID" required>
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                 <input type="text" name="batchNo" placeholder="Batch No">
+                 <input type="text" name="batchNo" placeholder="Batch No" required>
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                    <input type="text" name="classID" placeholder="Class ID">
+                    <input type="text" name="classID" placeholder="Class ID" required>
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                    <input type="text" name="divID" placeholder="Division ID">
+                    <input type="text" name="divID" placeholder="Division ID" required>
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                <input type="text" name="sRoll" placeholder="Starting roll number">
+                <input type="text" name="sRoll" placeholder="Starting roll number" required>
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                <input type="text" name="eRoll" placeholder="Ending roll number">
+                <input type="text" name="eRoll" placeholder="Ending roll number" required>
                 <br><br>
                     <div class="col-lg-1">
                     </div>
@@ -222,17 +223,17 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body wrap-input100 validate-input">
                        <form class="form-validate" action="division.jsp">
-                <input type="text" name="divisionID" placeholder="Division ID">
+                <input type="text" name="divisionID" placeholder="Division ID" required>
                 <br><br>
                     <div class="col-lg-1">
                 </div>
-                <input type="text" name="divisionName" placeholder="Division Name">
+                <input type="text" name="divisionName" placeholder="Division Name" required>
                 <br><br>
                     <div class="col-lg-1">
                 </div>
-                <button class="btn centerbtn" onclick="createMsg()">Create!</button>
+                <button class="btn centerbtn">Create!</button>
                            &nbsp;&nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </form>
@@ -251,13 +252,13 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body wrap-input100 validate-input">
                        <form class="form-validate" action="class.jsp">
-                <input type="text" name="classID" placeholder="Class ID">
+                <input type="text" name="classID" placeholder="Class ID" required>
                 <br><br>
                     <div class="col-lg-1">
                 </div>
-                <input type="text" name="className" placeholder="Class Name">
+                <input type="text" name="className" placeholder="Class Name" required>
                 <br><br>
                     <div class="col-lg-1">
                 </div>
@@ -270,34 +271,35 @@
                 </div>
                 </div>
                     
-                    <!-- Modal -->
-                    <div class="modal fade" id="addStud" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <!-- Modal to create remarks -->
+                    <div class="modal fade" id="remarks" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Add student</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle" align="center">Create Remarks</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div class="modal-body">
-                       <form class="form-validate" action="addStudToBatch.jsp">
-                <input type="text" name="batchID" placeholder="Batch ID">
+                    <div class="modal-body wrap-input100 validate-input">
+                        <form method="post" class="form-validate" action="remark.jsp">
+                        
+                        <input type="text" name="remarkID" placeholder="Remark ID" data-validate="Remark Name is required" required>
+                    <br><br>
+                    <div class="col-lg-1">
+                    </div>
+                <input type="text" name="remark" placeholder="Remark ID" data-validate="Remark ID is required">
                 <br><br>
                     <div class="col-lg-1">
                     </div>
-                <input type="text" name="memberID" placeholder="Member ID">
-                <br><br>
-                    <div class="col-lg-1">
-                    </div>
-                 <button class="btn btn-primary" onclick="createMsg()">Add!</button>
-                           &nbsp;&nbsp;&nbsp;
-                    <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
-                </form>
+                <button class="btn" type="submit">Add!</button>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
+                    </form>
                     </div>
                 </div>
                 </div>
-                </div>
+                </div>    
                 
                     <!-- Modal Disable -->
                     <div class="modal fade" id="disable" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -309,12 +311,12 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                     </div>
-                    <div class="modal-body">
-                        <form method="post" class="form-validate">
+                    <div class="modal-body wrap-input100 validate-input" data-validate="MemberID is required">
+                        <form method="post" class="form-validate" action="disable.jsp">
                         
                         <input type="text" name="mid" placeholder="Member ID to disable" required>
                         <br><br>
-                        <button class="btn" onclick="showAlert()">Disable</button>
+                        <button class="btn">Disable</button>
                              &nbsp;&nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn btn-secondary centerbtn" data-dismiss="modal">Close</button>
                     </form>

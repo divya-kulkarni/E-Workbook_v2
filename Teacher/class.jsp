@@ -20,6 +20,11 @@
     	}
     </script>
         <style>
+            	.sub
+	{
+		color:black;
+		font-size:18;
+	}
             .vertical-menu 
             {
                 width: 120%;
@@ -153,11 +158,11 @@
                 </div>
                 
                <div class="col-lg-9">
-                   <h3>Entire list of classes alloted to memberID</h3><br><br>
+                   <h3 color:"black">Classes assigned to you:</h3><br><br>
                    <% for(int i=0;i<cnt;i++)
                    	{
                    %>
-                   <a href="#" class="black" onclick="go(this); "><%= class1[i] %></a>
+                   <a href="#" class="sub" onclick="go(this); "><%= class1[i] %></a>
                    <% } %>
                 </div>
                 </div>

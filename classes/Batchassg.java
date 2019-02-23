@@ -6,14 +6,16 @@ import java.io.*;
 public class Batchassg
 {
 	String aname,ad,dd;
-	public static Batchassg[] getAssgList(String sn,String bn,String cn)throws Exception
+	public static Batchassg[] getAssgList(String tn,String bn,String cn)throws Exception
 	{
 		Class.forName("org.postgresql.Driver");
 		Batchassg s[]=new Batchassg[20];
 		int i=0;
 		Connection connection=DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres"," ");
-		PreparedStatement preparedStatement = connection.prepareStatement(" select assignmentname,assigneddate,duedate from assignmentmaster,assignmentbatch where assignmentmaster.assignmentid=assignmentbatch.assignmentid and  assignmentbatch.assignmentid IN(select assignmentbatch.assignmentid from assignmentmaster,assignmentbatch where assignmentmaster.assignmentid=assignmentbatch.assignmentid and topicid IN (select topicid from topicmaster where subjectid=(select subjectid from subjectmaster where subjectname=?))) and batchid=(select batchid from batchmaster where batchname=? and classid=(select classid from classmaster where classname=?))");
-		preparedStatement.setString(1, sn);   
+		PreparedStatement preparedStatement = connection.prepareStatement("select assignmentname,assigneddate,duedate from assignmentmaster,assignmentbatch where assignmentmaster.assignmentid=assignmentbatch.assignmentid and  assignmentbatch.assignmentid IN(select assignmentbatch.assignmentid from assignmentmaster,assignmentbatch where assignmentmaster.assignmentid=assignmentbatch.assignmentid and topicid=(select topicid from topicmaster where topicname=?)) and batchid=(select batchid from batchmaster where batchname=? and classid=(select classid from classmaster where classname=?))");
+;
+
+		preparedStatement.setString(1, tn);   
 		preparedStatement.setString(2, bn);
 		preparedStatement.setString(3, cn); 
 		ResultSet resultSet = preparedStatement.executeQuery();
@@ -24,8 +26,6 @@ public class Batchassg
     					s[i].ad=resultSet.getString(2);
     					s[i].dd=resultSet.getString(3);
     					i++;
-    					
-
 		}
 		return s;
 	}

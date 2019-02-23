@@ -24,7 +24,7 @@
     	}
     	function goassg(a)
     	{
-    		window.location.href="http://localhost:8080/Project/Teacher/assgList.jsp?param="+a.innerHTML;
+    		window.location.href="http://localhost:8080/Project/Teacher/topic.jsp?param="+a.innerHTML;
     	}
     </script>
         <style>

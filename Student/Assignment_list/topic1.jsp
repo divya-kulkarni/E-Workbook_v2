@@ -22,7 +22,7 @@
    }
    out.println(assg[0]);
    
-   showAssg as=new showAssg(ass);
+   showAssg as=new showAssg(ass,(String)session.getAttribute("memberID"));
 %> 
 
 <html>
@@ -268,7 +268,9 @@ function show() {
                 	<br><br>
                 	Assigned Date: <%= as.adate() %><br>
                 	Due Date: 	   <%= as.ddate() %><br><br><br>
-                	<%= as.ques() %>
+                	Info	:	<%= as.info() %><br><br>
+                	Question:<%= as.ques() %><br><br>
+                	Remark:<%= as.remark()%><br>
                  </div>
                 
                 <!-- Aligning table and button -->

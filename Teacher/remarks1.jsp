@@ -3,15 +3,24 @@
 	String cn=(String)session.getAttribute("cn");
 	String bn=(String)session.getAttribute("bn");
 	String an=(String)session.getAttribute("an");
+	String sn=(String)session.getAttribute("sn");
+	Batchassg assg[]=Batchassg.getAssgList(sn,bn,cn);
+	int cnt,cnt1;
+	for(cnt1=0;cnt1<20;cnt1++)
+	{
+		if(assg[cnt1]==null)
+			break;
+	}
 	
 	Batchstud stud[]=Batchstud.getStudentList(bn,cn);
-	int cnt,j,x;
+	int j,x;
 	for(cnt=0;cnt<20;cnt++)
 	{
 		if(stud[cnt]==null)
 			break;
 	}
 	String rn[]=new String[10];
+	String ne="    ";
 %>
 
 <html>
@@ -21,8 +30,17 @@
     	{
     		window.location.href="giveRemark.jsp?param="+rn+"&param2="+a.innerHTML;
     	}
+    	function myAssg(a)
+    	{
+    		window.location.href="http://localhost:8080/Project/Teacher/assg.jsp?param="+a.innerHTML;
+    	}
     </script>
+    
         <style>
+        	.any
+        	{
+        		color:lightslategray;
+        	}
             .vertical-menu 
             {
                 width: 120%;
@@ -120,12 +138,11 @@
 
             <ul class="header__nav">
                 <li><img src="logo.png"></li>
-                <li class="current"><a href="../index.HTML" title="">Home</a></li>
+                <li class="current"><a href="index.jsp" title="">Home</a></li>
                 <li class="has-children">
                     <a href="#0" title="">Menu</a>
                     <ul class="sub-menu">
                         <li><a href="profile.jsp">Profile</a></li>
-                        <li><a href="../Forum/index.html">Forum</a></li>
                         <li><a href="../logout.jsp">Logout</a></li>
                     </ul>
                 </li>
@@ -140,13 +157,21 @@
         <div class="container fullWidth noPadding">
             <div class="row fullWidth">
                 <div class="col-lg-2">
-                    
-                    <div class="vertical-menu">
-                    <a href="index.HTML">Home</a>
-                    <a href="batch.jsp"  class="active">View Batches</a>
+                    <div class="vertical-menu"> 
+                    <a href="#" class="active" onclick=" subject(this); " ><%= sn %></a>
+                    <% 
+                    	
+                    	for(int i=0;i<cnt1;i++)
+                    	{
+                    		
+                    %>
+                    	<a href="#" onclick="myAssg(this);"><%= assg[i].aName() %></a>
+                    <% } %>
+                    <a href="#">Give Assignment</a>
                     </div>
                 </div>
-                <div class="col-lg-1">
+                <div class="col-lg-1"><h1 class="any">   hi</h1>
+              
                 </div>
                     <br><br><br>
                 <div class="col-lg-9">
@@ -163,20 +188,35 @@
                         <td><%= stud[i].getrollno()   %></td>
                    	<td><%= stud[i].getName()   %></td>
                         <td><div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Remarks
+                       <% rn=isRemark.remark(stud[i].getrollno(),an);
+                    	for(j=0;rn[j]!=null;j++);
+                    	if(j!=1) 
+                    	{
+                    	%>
+                    	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Remarks
                     <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                    <% rn=isRemark.remark(stud[i].getrollno(),an);
-                    	for(j=0;rn[j]!=null;j++);
-                    	for(x=0;x<j;x++)
-                    	{
+                    <% 
+                    	
+                    		for(x=0;x<j;x++)
+                    		{
+                    		
                     %>
                     
                     
-                        <li><a href="#" onclick=" go(<%= stud[i].getrollno() %>,this); "><%= rn[x]%><%=j%></a></li>
-                     <% } %>
-                    </ul>
-                    </div></td>
+                        <li><a href="#" onclick="go(<%= stud[i].getrollno() %>,this); "><%= rn[x] %></a></li>
+                      
+                     	<%	} %>
+                     	  </ul>
+                     
+                     	<% } else {
+                     	%>
+                     	<button class="btn btn-primary"><%= rn[0] %>
+                    </button>
+                    <% } %>
+                     </div>
+                     
+                    </td>
                        </tr>
                      <% } %>
                     </table>

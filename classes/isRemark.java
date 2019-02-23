@@ -15,7 +15,7 @@ public class isRemark
 		String s[]=new String[20];
 		int i=0,rid;
 		Connection connection=DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres"," ");
-		PreparedStatement preparedStatement = connection.prepareStatement("select remarkid from studentassignment where memberid=(select memberid from student where rollno=?) and assignmentid=(select assignmentid from assignmentmaster where assignmentname=?)");
+		PreparedStatement preparedStatement = connection.prepareStatement("select remarkid from studentassignment where memberid=(select memberid from student where rollno=?) and assignmentid IN (select assignmentid from assignmentmaster where assignmentname=?)");
 
 
 		preparedStatement.setInt(1,rn);   

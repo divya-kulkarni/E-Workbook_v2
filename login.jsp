@@ -5,7 +5,7 @@
 	String s=login.loginValidation(u,p);
 	out.println(s);
 	if("ERROR".equals(s))
-		out.println("ERRPR");
+		response.sendRedirect("loginError.html");
 	else
 	{
 		String memberID=getMemberID.getMemberId(u);

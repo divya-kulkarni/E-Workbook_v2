@@ -127,7 +127,6 @@
     <section class="s-featured">
         <div class="row">
             <div class="col-full">
-
                 <div class="featured-slider featured" data-aos="zoom-in">
 
                     <div class="featured__slide">
@@ -136,10 +135,11 @@
                             <div class="entry__background" style="background-image:url('images/thumbs/featured/featured-watch.jpg');"></div>
                             
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#overdue">Overdue</a></span><br>
-                                <span class="entry__category"><a href="#1">Subject1</a></span>
+                                
+                                
 
-                                <h1><a href="#0" title="">Topic1</a></h1>
+                                <h1><a href="#0" title=""><%= s[0] %></a></h1>
+                               
                             </div> <!-- end entry__content -->
                             
                         </div> <!-- end entry -->
@@ -152,10 +152,10 @@
                             <div class="entry__background" style="background-image:url('images/thumbs/featured/tea.jpg');"></div>
                             
                             <div class="entry__content">
-                                <span class="entry__category"><a href="#ca">Currently Assigned</a></span><br>
-                                <span class="entry__category"><a href="#2">Subject2</a></span>
+                                
+                               
 
-                                <h1><a href="#0" title="">Topic2</a></h1>
+                                <h1><a href="#0" title=""><%= s[1] %></a></h1>
 
                             </div> <!-- end entry__content -->
                             
@@ -170,10 +170,10 @@
                             <div class="entry__background" style="background-image:url('images/thumbs/featured/glasses.jpg');"></div>
 
                             <div class="entry__content">
-                                <span class="entry__category"><a href="submitted">Submitted</a></span><br>
-                                <span class="entry__category"><a href="#3">Subject3</a></span>
+                               
+                                
 
-                                <h1><a href="#0" title="">Topic3</a></h1>
+                                <h1><a href="#0" title=""><%= s[2] %></a></h1>
                             </div> <!-- end entry__content -->
 
                         </div> <!-- end entry -->
